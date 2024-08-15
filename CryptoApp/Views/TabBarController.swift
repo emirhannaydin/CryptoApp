@@ -19,7 +19,6 @@ class TabBarController: UITabBarController {
         userStatus()
         style()
         configureTabBar()
-        
     }
     
 }

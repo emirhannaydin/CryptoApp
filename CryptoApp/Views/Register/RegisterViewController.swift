@@ -7,7 +7,18 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+protocol RegisterViewControllerInterface: AnyObject{
+    func style()
+    func layout()
+    func handleRegisterButton()
+    func goLoginPage()
+    func showRegisterError(_ errorMessage: String)
+    func registerSuccess()
+}
+
+final class RegisterViewController: UIViewController {
+    
+    private lazy var viewModel = RegisterViewModel()
     
     private let logoImageView: UIImageView = {
         let imageView = CustomLoginImageView(imageName: "person.circle")
@@ -72,50 +83,16 @@ class RegisterViewController: UIViewController {
     
     private var stackView = UIStackView()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
-        
+        viewModel.view = self
+        viewModel.viewDidLoad()        
     }
-    
-
 }
 
-extension RegisterViewController{
-    @objc private func handleRegisterButton(){
-        guard let emailText = emailTextField.text else { return }
-        guard let passwordText = passwordTextField.text else { return }
-        guard let usernameText = usernameTextField.text else { return }
-        
-        if emailText.isEmpty {
-            self.showHud(show: "Error",detailShow: "please entered a email", delay: 1)
-
-        }
-        let user = AuthenticationRegisterUserModel(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
-        AuthenticationService.createUser(user: user) { error in
-            if let error = error{
-                print("Error: \(error.localizedDescription)")
-                self.showHud(show: "Error" ,detailShow: error.localizedDescription, delay: 1)
-                return
-            }
-            let viewController = UINavigationController(rootViewController: TabBarController())
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                window.rootViewController = viewController
-                window.makeKeyAndVisible()
-            }
-            
-            
-        }
-    }
-    @objc private func goLoginPage(){
-        let controller = LoginViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+extension RegisterViewController: RegisterViewControllerInterface{
     
-    private func style(){
+    func style(){
         backgroundGradientColor()
         self.navigationController?.isNavigationBarHidden = true
         
@@ -124,7 +101,7 @@ extension RegisterViewController{
         stackView.spacing = 14
         stackView.distribution = .fillEqually
     }
-    private func layout(){
+    func layout(){
         
         view.addSubview(logoImageView)
         view.addSubview(stackView)
@@ -148,6 +125,32 @@ extension RegisterViewController{
             loginPageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             loginPageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
+        
+    }
+    
+    @objc func handleRegisterButton(){
+        guard let emailText = emailTextField.text else { return }
+        guard let passwordText = passwordTextField.text else { return }
+        guard let usernameText = usernameTextField.text else { return }
+        viewModel.register(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
+        
+    }
+    @objc func goLoginPage(){
+        let controller = LoginViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func showRegisterError(_ errorMessage: String) {
+        self.showHud(show: "Error" ,detailShow: errorMessage, delay: 1)
+    }
+    
+    func registerSuccess(){
+        let viewController = UINavigationController(rootViewController: TabBarController())
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController = viewController
+            window.makeKeyAndVisible()
+        }
         
     }
 }

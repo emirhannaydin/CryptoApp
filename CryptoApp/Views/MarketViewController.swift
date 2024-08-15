@@ -12,7 +12,7 @@ class MarketViewController: UIViewController {
 
     var cryptoList: [Crypto] = []
     var filteredCryptoList: [Crypto] = []
-    var top5Cryptos: [Crypto] = [] 
+    var top5Cryptos: [Crypto] = []
     var pageNumber = 1
     var isLoading = false
     var isSearching = false
@@ -33,6 +33,7 @@ class MarketViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
     }
+    
     
     private func getCrypto(page: Int) {
         isLoading = true
@@ -176,6 +177,13 @@ class MarketViewController: UIViewController {
            }
 
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            if textField == searchTextField {
+                setupTapGesture()
+
+            }
+        }
     
     private func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutside(_:)))

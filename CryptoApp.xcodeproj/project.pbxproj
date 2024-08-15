@@ -48,7 +48,6 @@
 		1E99F3092C62478400E1B6D0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F3082C62478400E1B6D0 /* FirebaseStorageCombine-Community */; };
 		1E99F30B2C62478400E1B6D0 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F30A2C62478400E1B6D0 /* FirebaseVertexAI-Preview */; };
 		1E99F3102C6249C600E1B6D0 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F30F2C6249C600E1B6D0 /* AuthenticationService.swift */; };
-		1E99F3122C6371B500E1B6D0 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3112C6371B500E1B6D0 /* MarketViewController.swift */; };
 		1E99F3152C63779900E1B6D0 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F3142C63779900E1B6D0 /* JGProgressHUD */; };
 		1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */; };
 		1E99F3192C639B4D00E1B6D0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */; };
@@ -59,6 +58,9 @@
 		1E99F32C2C66027800E1B6D0 /* CryptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F32B2C66027800E1B6D0 /* CryptoTableViewCell.swift */; };
 		1E99F32F2C66101A00E1B6D0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F32E2C66101A00E1B6D0 /* Kingfisher */; };
 		1E99F3312C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3302C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift */; };
+		1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */; };
+		1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */; };
+		1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +85,6 @@
 		1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginImageView.swift; sourceTree = "<group>"; };
 		1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E99F30F2C6249C600E1B6D0 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		1E99F3112C6371B500E1B6D0 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
 		1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchInputView.swift; sourceTree = "<group>"; };
@@ -92,6 +93,9 @@
 		1E99F3272C63A6AB00E1B6D0 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		1E99F32B2C66027800E1B6D0 /* CryptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewCell.swift; sourceTree = "<group>"; };
 		1E99F3302C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
+		1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,9 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				1E99F2B42C6217D300E1B6D0 /* CryptoApp */,
-				1E99F2B32C6217D300E1B6D0 /* Products */,
-				CE352D7B248FE202E8F7F165 /* Pods */,
 				82CE8BA18546132ADB2B326F /* Frameworks */,
+				CE352D7B248FE202E8F7F165 /* Pods */,
+				1E99F2B32C6217D300E1B6D0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,10 +159,10 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95BC2C6E120C00C3CE1B /* Views */,
 				1E99F3242C63A68600E1B6D0 /* Models */,
 				1E99F31E2C63A59600E1B6D0 /* Manager */,
 				1E99F30E2C6249B000E1B6D0 /* Service */,
-				1E99F2C92C62197400E1B6D0 /* Controller */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
 				1E99F2C32C6217D400E1B6D0 /* Info.plist */,
@@ -166,20 +170,6 @@
 				1E99F2CB2C62199500E1B6D0 /* Utilities */,
 			);
 			path = CryptoApp;
-			sourceTree = "<group>";
-		};
-		1E99F2C92C62197400E1B6D0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1E99F2B92C6217D300E1B6D0 /* LoginViewController.swift */,
-				1E99F2D72C62392B00E1B6D0 /* RegisterViewController.swift */,
-				1E99F3112C6371B500E1B6D0 /* MarketViewController.swift */,
-				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
-				1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */,
-				1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */,
-				1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		1E99F2CB2C62199500E1B6D0 /* Utilities */ = {
@@ -206,12 +196,12 @@
 			isa = PBXGroup;
 			children = (
 				1E1B0B152C6CDC35001558A8 /* AccountView.swift */,
-				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 				1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */,
-				1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */,
+				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 				1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */,
 				1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */,
 				1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */,
+				1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -249,6 +239,38 @@
 				1E1B0B112C6CD4E8001558A8 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A95C02C6E1B6500C3CE1B /* Register */,
+				1E9A95BD2C6E121D00C3CE1B /* Login */,
+				1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */,
+				1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */,
+				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
+				1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */,
+				1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1E9A95BD2C6E121D00C3CE1B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1E99F2B92C6217D300E1B6D0 /* LoginViewController.swift */,
+				1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1E9A95C02C6E1B6500C3CE1B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				1E99F2D72C62392B00E1B6D0 /* RegisterViewController.swift */,
+				1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
@@ -417,7 +439,6 @@
 			files = (
 				1E99F2BA2C6217D300E1B6D0 /* LoginViewController.swift in Sources */,
 				1E1B0B142C6CD579001558A8 /* Service.swift in Sources */,
-				1E99F3122C6371B500E1B6D0 /* MarketViewController.swift in Sources */,
 				1E99F31B2C63A22700E1B6D0 /* CustomSearchInputView.swift in Sources */,
 				1E99F3192C639B4D00E1B6D0 /* AccountViewController.swift in Sources */,
 				1E1B0B0E2C6B5707001558A8 /* CryptoDetailViewController.swift in Sources */,
@@ -429,12 +450,15 @@
 				1E1B0B122C6CD4E8001558A8 /* User.swift in Sources */,
 				1E1B0B162C6CDC35001558A8 /* AccountView.swift in Sources */,
 				1E99F2D82C62392B00E1B6D0 /* RegisterViewController.swift in Sources */,
+				1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */,
 				1E99F2D62C622C3A00E1B6D0 /* CustomLoginButton.swift in Sources */,
 				1E99F32C2C66027800E1B6D0 /* CryptoTableViewCell.swift in Sources */,
 				1E99F2B82C6217D300E1B6D0 /* SceneDelegate.swift in Sources */,
+				1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */,
 				1E99F2DA2C623AEB00E1B6D0 /* CustomLoginImageView.swift in Sources */,
 				1E99F2D22C62246C00E1B6D0 /* AuthenticationInputView.swift in Sources */,
 				1E99F2CE2C6219E700E1B6D0 /* Extensions.swift in Sources */,
+				1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */,
 				1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */,
 				1E99F3202C63A59F00E1B6D0 /* NetworkManager.swift in Sources */,
 				1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */,

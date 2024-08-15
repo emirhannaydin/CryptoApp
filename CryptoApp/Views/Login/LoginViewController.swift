@@ -7,7 +7,19 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+protocol LoginViewControllerInterface: AnyObject{
+    func style()
+    func layout()
+    func goRegister()
+    func handleLoginButton()
+    func showLoginError(_ errorMessage: String)
+    func LoginSuccess()
+}
+
+final class LoginViewController: UIViewController {
+    
+    private lazy var viewModel = LoginViewModel()
+
     
     private let logoImageView: UIImageView = {
         let imageView = CustomLoginImageView(imageName: "bitcoinsign.circle")
@@ -59,41 +71,17 @@ class LoginViewController: UIViewController {
     
     private var stackView = UIStackView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
+        viewModel.view = self
+        viewModel.viewDidLoad()
+        
     }
 }
 
-extension LoginViewController{
-    @objc private func handleLoginButton(){
-        guard let emailText = emailTextField.text else { return }
-        guard let passwordText = passwordTextField.text else { return }
-        AuthenticationService.login(emailText: emailText, passwordText: passwordText) { result, error in
-            if let error = error{
-                print("Error:\(error.localizedDescription)")
-                self.showHud(show: "Error", detailShow: error.localizedDescription, delay: 1)
-                return
-            }
-            self.showHud(show: "Login Successful",detailShow: "Please Wait", delay: 1)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                let viewController = UINavigationController(rootViewController: TabBarController())
-                
-                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                   let window = windowScene.windows.first {
-                    window.rootViewController = viewController
-                    window.makeKeyAndVisible()
-                }
-            }
-        }
-    }
-    @objc private func goRegister(){
-        let controller = RegisterViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-    private func style(){
+extension LoginViewController: LoginViewControllerInterface{
+    
+    func style(){
         backgroundGradientColor()
 
         stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
@@ -102,7 +90,7 @@ extension LoginViewController{
         stackView.distribution = .fillEqually
         
     }
-    private func layout(){
+    func layout(){
         view.addSubview(logoImageView)
         view.addSubview(stackView)
         view.addSubview(registrationButton)
@@ -125,6 +113,35 @@ extension LoginViewController{
             registrationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             registrationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
+    }
+    
+    @objc func handleLoginButton(){
+        guard let emailText = emailTextField.text else { return }
+        guard let passwordText = passwordTextField.text else { return }
+        viewModel.login(emailText: emailText, passwordText: passwordText)
+        
+    }
+    @objc func goRegister(){
+        let controller = RegisterViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func showLoginError(_ errorMessage: String){
+        self.showHud(show: "Error", detailShow: errorMessage, delay: 1)
+    }
+    
+    func LoginSuccess(){
+        self.showHud(show: "Login Successful",detailShow: "Please Wait", delay: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let viewController = UINavigationController(rootViewController: TabBarController())
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                window.rootViewController = viewController
+                window.makeKeyAndVisible()
+            }
+        }
+        
     }
 }
 
