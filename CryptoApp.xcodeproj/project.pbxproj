@@ -61,6 +61,7 @@
 		1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */; };
 		1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */; };
 		1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */; };
+		1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
 		1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,9 +246,9 @@
 		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95C32C6E214F00C3CE1B /* Account */,
 				1E9A95C02C6E1B6500C3CE1B /* Register */,
 				1E9A95BD2C6E121D00C3CE1B /* Login */,
-				1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */,
 				1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */,
 				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
 				1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */,
@@ -271,6 +273,15 @@
 				1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		1E9A95C32C6E214F00C3CE1B /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */,
+				1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
@@ -459,6 +470,7 @@
 				1E99F2D22C62246C00E1B6D0 /* AuthenticationInputView.swift in Sources */,
 				1E99F2CE2C6219E700E1B6D0 /* Extensions.swift in Sources */,
 				1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */,
+				1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */,
 				1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */,
 				1E99F3202C63A59F00E1B6D0 /* NetworkManager.swift in Sources */,
 				1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */,

@@ -8,11 +8,21 @@
 import UIKit
 import FirebaseAuth
 
+protocol AccountViewControllerInterface: AnyObject {
+    func style()
+    func layout()
+    func configureText()
+    func goLoginPage()
+    func signOutAlert()
+        
+}
+
 class AccountViewController: UIViewController {
     
-    private var user: User? {
-        didSet{ configure() }
-    }
+    lazy var viewModel = AccountViewModel()
+    
+    private let emailLabel = UILabel()
+    private let usernameLabel = UILabel()
     
     private lazy var emailContainerView: UIView = {
         let containerView = AccountView(image: UIImage(systemName: "envelope")!, label: emailLabel)
@@ -22,10 +32,6 @@ class AccountViewController: UIViewController {
         let containerView = AccountView(image: UIImage(systemName: "person")!, label: usernameLabel)
         return containerView
     }()
-    
-    private let emailLabel = UILabel()
-    private let usernameLabel = UILabel()
-    
     
     private lazy var signOutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -49,15 +55,14 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundGradientColor()
-        style()
-        layout()
-        fetchUser()
+        viewModel.view = self
+        viewModel.viewDidLoad()
     }
     
     
 }
-extension AccountViewController{
-    private func style(){
+extension AccountViewController: AccountViewControllerInterface{
+    func style(){
         stackView = UIStackView(arrangedSubviews: [usernameContainerView, emailContainerView, signOutButton])
         stackView.axis = .vertical
         stackView.spacing = 14
@@ -66,7 +71,7 @@ extension AccountViewController{
         usernameLabel.textColor = .white
         emailLabel.textColor = .white
     }
-    private func layout(){
+    func layout(){
         view.addSubview(stackView)
         view.addSubview(logoImageView)
         
@@ -87,45 +92,29 @@ extension AccountViewController{
         ])
     }
     
-    private func configure(){
-        guard let user = self.user else { return }
+    func configureText(){
+        guard let user = viewModel.user else { return }
         emailLabel.text = "\(user.email)"
         usernameLabel.text = "\(user.username)"
     }
-    private func fetchUser(){
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Service.fetchUser(uid: uid) { user in
-            self.user = user
-        }
+    func goLoginPage(){
+        viewModel.signOut()
+        let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
+        loginScreenVC.modalPresentationStyle = .fullScreen
+        self.present(loginScreenVC, animated: true)
     }
     
-     private func signout(){
-        do {
-            try Auth.auth().signOut()
-            let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
-            loginScreenVC.modalPresentationStyle = .fullScreen
-            self.present(loginScreenVC, animated: true)
-            
-            
-        } catch {
-            print("Çıkış yaparken hata oluştu")
-        }
-    }
-    
-    @objc private func signOutAlert() {
-            // Show confirmation alert
+    @objc func signOutAlert() {
             let alert = UIAlertController(title: "Sign Out",
                                           message: "Do you want to sign out of the application?",
                                           preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-                self.signout()
+                self.goLoginPage()
             }
             let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-            
             alert.addAction(yesAction)
             alert.addAction(noAction)
-            
             self.present(alert, animated: true, completion: nil)
         }
 }

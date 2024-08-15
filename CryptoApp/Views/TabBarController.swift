@@ -26,7 +26,7 @@ class TabBarController: UITabBarController {
 extension TabBarController{
     private func style(){
         viewControllers = [configureViewController(rootViewController: marketVC, title: "Market", image: "chart.xyaxis.line"),
-                           configureViewController(rootViewController: favoriteVC, title: "Favorite", image: "star"),
+                           configureViewController(rootViewController: favoriteVC, title: "Favorites", image: "star"),
                            configureViewController(rootViewController: accountVC, title: "Account", image: "person")]
     }
     

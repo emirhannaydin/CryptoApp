@@ -82,5 +82,197 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "830F02B2-6970-4660-8ECD-AA3B92001600"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F800E94-566B-43A6-B4B6-AA50ACC0D058"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "signOut()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4F800E94-566B-43A6-B4B6-AA50ACC0D058 - 6c82a28b605ff7a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewModel.signOut() -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "4F800E94-566B-43A6-B4B6-AA50ACC0D058 - 6c82a28b605ff7a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewModel.signOut() -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "006AB1A4-9C2F-4F91-B780-BBF99209B59C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "goLoginPage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADEE0B19-E695-4EF5-A568-FAB57D863916"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "configureText()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ADEE0B19-E695-4EF5-A568-FAB57D863916 - 1bfd50dcea6b11a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewController.configureText() -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "ADEE0B19-E695-4EF5-A568-FAB57D863916 - 1bfd50dcea6b11a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewController.configureText() -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC68A19C-0E84-469B-8E98-4605B5184B5D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "fetchUser()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EC68A19C-0E84-469B-8E98-4605B5184B5D - ffd3bcbaf7f65bd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewModel.fetchUser() -&gt; Swift.Optional&lt;CryptoApp.User&gt;"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "EC68A19C-0E84-469B-8E98-4605B5184B5D - c4df7cdfc6799700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CryptoApp.AccountViewModel.fetchUser() -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Documents/GitHub/CryptoApp/CryptoApp/Views/Account/AccountViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63D22F07-6BDC-4616-8566-14C98684B059"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Views/Account/AccountViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "fetchUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
