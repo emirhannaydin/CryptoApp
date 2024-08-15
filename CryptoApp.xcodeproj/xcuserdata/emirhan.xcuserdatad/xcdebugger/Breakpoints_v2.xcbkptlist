@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A173DBB8-B8A7-4FA6-AAFE-5448E849173A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AED32D9-B346-45FA-A0A1-8AD780669D70"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getCryptoImage(iconUrl:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AED32D9-B346-45FA-A0A1-8AD780669D70 - 1a2c0d7b48ace636"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "8AED32D9-B346-45FA-A0A1-8AD780669D70 - 1a2c0d7b48ace636"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "111164F3-D4A4-4B33-AE89-BABF81DFF3C1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "getCryptoImage(iconUrl:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "111164F3-D4A4-4B33-AE89-BABF81DFF3C1 - 1a2c0d7b48ace77c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "672">
+               </Location>
+               <Location
+                  uuid = "111164F3-D4A4-4B33-AE89-BABF81DFF3C1 - 1a2c0d7b48ace77c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "111164F3-D4A4-4B33-AE89-BABF81DFF3C1 - 1a2c0d7b48ace77c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7462A1D-538F-4947-868A-56669B27CA0A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getCryptoImage(iconUrl:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D7462A1D-538F-4947-868A-56669B27CA0A - 1a2c0d7b48ace8d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "D7462A1D-538F-4947-868A-56669B27CA0A - 1a2c0d7b48ace8d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCryptoImage(iconUrl: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "1364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54CB4138-EDA2-4EE3-BF49-5EA9CD114EBC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getCrypto(pageNumber:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "54CB4138-EDA2-4EE3-BF49-5EA9CD114EBC - 989bfb8491c30070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCrypto(completion: (Swift.Optional&lt;Swift.Array&lt;CryptoApp.Crypto&gt;&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "54CB4138-EDA2-4EE3-BF49-5EA9CD114EBC - 989bfb8491c30070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCrypto(completion: (Swift.Optional&lt;Swift.Array&lt;CryptoApp.Crypto&gt;&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "600">
+               </Location>
+               <Location
+                  uuid = "54CB4138-EDA2-4EE3-BF49-5EA9CD114EBC - 989bfb8491c30070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in CryptoApp.NetworkManager.getCrypto(completion: (Swift.Optional&lt;Swift.Array&lt;CryptoApp.Crypto&gt;&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDF00F96-7F20-47B0-A7BD-6E4E91BCABF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getCrypto(pageNumber:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6947C8B6-72AA-4E2B-919B-E9B77BC84C38"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getIcon(iconUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97F60D1F-C406-49D1-BD9C-9F484CDE164F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getIcon(iconUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1565BCF-C4F2-4154-9B52-19118A1779A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "cryptoSetup(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA812427-0885-4908-B4CD-E2A0FCAC93A7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Custom Views/CustomCell/CryptoTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "cryptoSetup(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

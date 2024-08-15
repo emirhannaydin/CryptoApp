@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8B614A19-6DEF-4F9F-857A-A6D99C8F503C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06D792AB-3223-4A87-AB86-EF479A87CBD5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoApp/Controller/CryptoDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "getIcon(iconUrl:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06D792AB-3223-4A87-AB86-EF479A87CBD5 - 627f5edd24dcb67d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; () in CryptoApp.CryptoDetailViewController.getIcon(iconUrl: Swift.String) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Controller/CryptoDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "06D792AB-3223-4A87-AB86-EF479A87CBD5 - ffbac47fc4ec5621"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; () in CryptoApp.CryptoDetailViewController.getIcon(iconUrl: Swift.String) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Controller/CryptoDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "06D792AB-3223-4A87-AB86-EF479A87CBD5 - 627f5edd24dcb67d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; () in CryptoApp.CryptoDetailViewController.getIcon(iconUrl: Swift.String) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Controller/CryptoDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "06D792AB-3223-4A87-AB86-EF479A87CBD5 - 627f5edd24dcb65c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;CryptoApp.ErrorMessage&gt;) -&gt; () in CryptoApp.CryptoDetailViewController.getIcon(iconUrl: Swift.String) -&gt; ()"
+                  moduleName = "CryptoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emirhan/Desktop/Swift/CA/CryptoApp/CryptoApp/Controller/CryptoDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
