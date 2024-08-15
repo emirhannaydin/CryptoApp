@@ -42,16 +42,6 @@ class CryptoDetailViewController: UIViewController{
 
         var crypto: Crypto?
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        prepareView(crypto: crypto!)
-        style()
-        layout()
-        
-    }
-    
     private let lineChartView: LineChartView = {
             let chartView = LineChartView()
             chartView.rightAxis.enabled = false
@@ -64,125 +54,17 @@ class CryptoDetailViewController: UIViewController{
             return chartView
         }()
     
-    func configureChart(with prices: [Double]) {
-            var entries: [ChartDataEntry] = []
-            
-            for (index, price) in prices.enumerated() {
-                entries.append(ChartDataEntry(x: Double(index), y: price))
-            }
-            
-            let dataSet = LineChartDataSet(entries: entries, label: "Price")
-            dataSet.colors = [NSUIColor.systemBlue]
-            dataSet.drawCirclesEnabled = false
-            dataSet.mode = .cubicBezier
-            dataSet.lineWidth = 1
-            
-            let data = LineChartData(dataSet: dataSet)
-            lineChartView.data = data
-            lineChartView.animate(xAxisDuration: 0.5)
-        }
-
     
-    func prepareView(crypto: Crypto){
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.locale = Locale(identifier: "en_EN")
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 8
-        
-        let formattedPriceChangeValue = String(format: "%.2f", crypto.priceChange24H ?? 0.0)
-        cryptoName.text = "\(crypto.name)"
-        currentPrice.text = "$\(crypto.currentPrice ?? 0.0)"
-        
-        let formattedValue = String(format: "%.2f", crypto.priceChangePercentage24H ?? 0.0)
-           if crypto.priceChangePercentage24H ?? 0.0 > 0.001 {
-               currentPriceChange.text = "%+\(formattedValue)"
-               currentPriceChange.textColor = UIColor(red: 92/255, green: 200/255, blue: 134/255, alpha: 1.0)
-           } else if crypto.priceChangePercentage24H ?? 0.0 < -0.001 {
-               currentPriceChange.text = "%\(formattedValue)"
-               currentPriceChange.textColor = UIColor(red: 226/255, green: 84/255, blue: 97/255, alpha: 1.0)
-           } else {
-               currentPriceChange.text = "%\(formattedValue)"
-               currentPriceChange.textColor = .systemGray
-           }
-        
-        marketCap.text = "\(formatNumber(crypto.marketCap))"
-        
-        let formattedMarketCapChange = String(format: "%.2f", crypto.marketCapChangePercentage24H ?? 0.0)
-            if crypto.marketCapChangePercentage24H ?? 0.0 > 0.001 {
-                marketCapChange.textColor = UIColor(red: 92/255, green: 200/255, blue: 134/255, alpha: 1.0)
-            } else if crypto.marketCapChangePercentage24H ?? 0.0 < -0.001 {
-                marketCapChange.textColor = UIColor(red: 226/255, green: 84/255, blue: 97/255, alpha: 1.0)
-            } else {
-                marketCapChange.textColor = .systemGray
-            }
-            marketCapChange.text = "%\(formattedMarketCapChange)"
-        
-        rank.text = "\(crypto.marketCapRank ?? 0)"
-        volume.text = "\(formatNumber(crypto.totalVolume))"
-        
-        maxPrice24h.text = "$\(crypto.high24H ?? 0.0)"
-        minPrice24h.text = "$\(crypto.low24H ?? 0.0)"
-        priceChange24h.text = "$\(formattedPriceChangeValue)"
-        marketCapChange24h.text = "\(formatNumber(crypto.marketCapChange24H))"
-        
-        if let prices = crypto.sparklineIn7D?.price {
-            configureChart(with: prices)
-           }
-        getIcon(iconUrl: crypto.image)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        prepareView(crypto: crypto!)
+        style()
+        layout()
         
     }
-    
-    func formatNumber(_ number: Double?) -> String {
-        guard let number = number else { return "N/A" }
-
-            let isNegative = number < 0
-            let numberDouble = abs(number)
-
-            var formattedNumber: String
-
-            if numberDouble >= 1_000_000_000_000 {
-                formattedNumber = String(format: "%.2fTr", numberDouble / 1_000_000_000_000)
-            } else if numberDouble >= 1_000_000_000 {
-                formattedNumber = String(format: "%.2fBn", numberDouble / 1_000_000_000)
-            } else if numberDouble >= 1_000_000 {
-                formattedNumber = String(format: "%.2fM", numberDouble / 1_000_000)
-            } else if numberDouble >= 1_000 {
-                formattedNumber = String(format: "%.2fK", numberDouble / 1_000)
-            } else {
-                formattedNumber = String(numberDouble)
-            }
-
-            if isNegative {
-                formattedNumber = "-$\(formattedNumber)"
-            }
-
-            return formattedNumber
-    }
-    
-    func getIcon(iconUrl : String){
-        NetworkManager.shared.getCryptoImage(iconUrl: iconUrl) { [weak self] data, errorMessage in
-            
-            if let errorMessage = errorMessage {
-                        DispatchQueue.main.async {
-                            print("Error: \(errorMessage.rawValue)")
-                        }
-                        return
-            }
-            if let data = data {
-                DispatchQueue.main.async {
-                    self?.cryptoSymbol.image = UIImage(data: data)
-                        }
-                    }
-        }
-    }
-    
     
 }
-
-
-
 
 extension CryptoDetailViewController{
     func style(){
@@ -346,5 +228,91 @@ extension CryptoDetailViewController{
             fourthSV.topAnchor.constraint(equalTo: additionalDetailTitle.bottomAnchor, constant: 10),
             fourthSV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
+    }
+    
+    func configureChart(with prices: [Double]) {
+            var entries: [ChartDataEntry] = []
+            
+            for (index, price) in prices.enumerated() {
+                entries.append(ChartDataEntry(x: Double(index), y: price))
+            }
+            
+            let dataSet = LineChartDataSet(entries: entries, label: "Price")
+            dataSet.colors = [NSUIColor.systemBlue]
+            dataSet.drawCirclesEnabled = false
+            dataSet.mode = .cubicBezier
+            dataSet.lineWidth = 1
+            
+            let data = LineChartData(dataSet: dataSet)
+            lineChartView.data = data
+            lineChartView.animate(xAxisDuration: 0.5)
+        }
+    
+    func prepareView(crypto: Crypto){
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "en_EN")
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 8
+        
+        let formattedPriceChangeValue = String(format: "%.2f", crypto.priceChange24H ?? 0.0)
+        cryptoName.text = "\(crypto.name)"
+        currentPrice.text = "$\(crypto.currentPrice ?? 0.0)"
+        
+        let formattedValue = String(format: "%.2f", crypto.priceChangePercentage24H ?? 0.0)
+           if crypto.priceChangePercentage24H ?? 0.0 > 0.001 {
+               currentPriceChange.text = "%+\(formattedValue)"
+               currentPriceChange.textColor = UIColor(red: 92/255, green: 200/255, blue: 134/255, alpha: 1.0)
+           } else if crypto.priceChangePercentage24H ?? 0.0 < -0.001 {
+               currentPriceChange.text = "%\(formattedValue)"
+               currentPriceChange.textColor = UIColor(red: 226/255, green: 84/255, blue: 97/255, alpha: 1.0)
+           } else {
+               currentPriceChange.text = "%\(formattedValue)"
+               currentPriceChange.textColor = .systemGray
+           }
+        
+        marketCap.text = "\(formatNumber(crypto.marketCap))"
+        
+        let formattedMarketCapChange = String(format: "%.2f", crypto.marketCapChangePercentage24H ?? 0.0)
+            if crypto.marketCapChangePercentage24H ?? 0.0 > 0.001 {
+                marketCapChange.textColor = UIColor(red: 92/255, green: 200/255, blue: 134/255, alpha: 1.0)
+            } else if crypto.marketCapChangePercentage24H ?? 0.0 < -0.001 {
+                marketCapChange.textColor = UIColor(red: 226/255, green: 84/255, blue: 97/255, alpha: 1.0)
+            } else {
+                marketCapChange.textColor = .systemGray
+            }
+            marketCapChange.text = "%\(formattedMarketCapChange)"
+        
+        rank.text = "\(crypto.marketCapRank ?? 0)"
+        volume.text = "\(formatNumber(crypto.totalVolume))"
+        
+        maxPrice24h.text = "$\(crypto.high24H ?? 0.0)"
+        minPrice24h.text = "$\(crypto.low24H ?? 0.0)"
+        priceChange24h.text = "$\(formattedPriceChangeValue)"
+        marketCapChange24h.text = "\(formatNumber(crypto.marketCapChange24H))"
+        
+        if let prices = crypto.sparklineIn7D?.price {
+            configureChart(with: prices)
+           }
+        getIcon(iconUrl: crypto.image)
+        
+    }
+    
+    func getIcon(iconUrl : String){
+        NetworkManager.shared.getCryptoImage(iconUrl: iconUrl) { [weak self] data, errorMessage in
+            
+            if let errorMessage = errorMessage {
+                        DispatchQueue.main.async {
+                            print("Error: \(errorMessage.rawValue)")
+                        }
+                        return
+            }
+            if let data = data {
+                DispatchQueue.main.async {
+                    self?.cryptoSymbol.image = UIImage(data: data)
+                        }
+                    }
+        }
     }
 }

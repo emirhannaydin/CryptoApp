@@ -26,4 +26,31 @@ extension UIViewController{
         jgProgressHud.dismiss(afterDelay: delay)
         
     }
+    
+    func formatNumber(_ number: Double?) -> String {
+        guard let number = number else { return "N/A" }
+
+            let isNegative = number < 0
+            let numberDouble = abs(number)
+
+            var formattedNumber: String
+
+            if numberDouble >= 1_000_000_000_000 {
+                formattedNumber = String(format: "%.2fTr", numberDouble / 1_000_000_000_000)
+            } else if numberDouble >= 1_000_000_000 {
+                formattedNumber = String(format: "%.2fBn", numberDouble / 1_000_000_000)
+            } else if numberDouble >= 1_000_000 {
+                formattedNumber = String(format: "%.2fM", numberDouble / 1_000_000)
+            } else if numberDouble >= 1_000 {
+                formattedNumber = String(format: "%.2fK", numberDouble / 1_000)
+            } else {
+                formattedNumber = String(numberDouble)
+            }
+
+            if isNegative {
+                formattedNumber = "-$\(formattedNumber)"
+            }
+
+            return formattedNumber
+    }
 }

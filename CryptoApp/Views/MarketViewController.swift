@@ -30,10 +30,122 @@ class MarketViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CryptoTableViewCell.self, forCellReuseIdentifier: CryptoTableViewCell.identifier)
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 20
+        
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.decelerationRate = .fast
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CryptoCollectionViewCell.self, forCellWithReuseIdentifier: CryptoCollectionViewCell.identifier)
+        return collectionView
+    }()
+    
+    private lazy var searchContainerView: UIView = {
+        let containerView = CustomSearchInputView(image: UIImage(systemName: "magnifyingglass")!, textField: searchTextField)
+        return containerView
+    }()
+    
+    private lazy var searchTextField: UITextField = {
+        let textField = CustomTextField(placeHolder: "Search", placeholderColor: UIColor.darkGray)
+        textField.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
+        return textField
+    }()
+    
+    private let topLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Top 5 cryptocurrencies from the top 250 coins by market cap"
+        label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let appName: UILabel = {
+        let label = UILabel()
+        label.text = "Crypto App"
+        label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        label.textAlignment = .center
+        return label
+    }()
+}
 
+// MARK: - Functions
+
+extension MarketViewController {
+    
+    private func style(){
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.decelerationRate = .fast
+
+        dividerView.backgroundColor = .darkGray
+        
     }
     
+    private func layout() {
+        view.addSubview(appName)
+        view.addSubview(collectionView)
+        view.addSubview(searchContainerView)
+        view.addSubview(tableView)
+        view.addSubview(dividerView)
+        view.addSubview(topLabel)
+        
+        appName.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        searchContainerView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+        topLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            
+            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            appName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            appName.heightAnchor.constraint(equalToConstant: 20),
+            
+            collectionView.topAnchor.constraint(equalTo: appName.bottomAnchor,constant: 10),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            collectionView.heightAnchor.constraint(equalToConstant: 100),
+            
+            topLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 6),
+            topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            dividerView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 6),
+            dividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            dividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dividerView.heightAnchor.constraint(equalToConstant: 1),
+            
+            searchContainerView.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 32),
+            searchContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            searchContainerView.heightAnchor.constraint(equalToConstant: 50),
+            
+            tableView.topAnchor.constraint(equalTo: searchContainerView.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
     
     private func getCrypto(page: Int) {
         isLoading = true
@@ -100,62 +212,6 @@ class MarketViewController: UIViewController {
         }
     }
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CryptoTableViewCell.self, forCellReuseIdentifier: CryptoTableViewCell.identifier)
-        tableView.separatorStyle = .none
-        return tableView
-    }()
-    
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
-        
-        collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.decelerationRate = .fast
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(CryptoCollectionViewCell.self, forCellWithReuseIdentifier: CryptoCollectionViewCell.identifier)
-        return collectionView
-    }()
-    
-    private lazy var searchContainerView: UIView = {
-        let containerView = CustomSearchInputView(image: UIImage(systemName: "magnifyingglass")!, textField: searchTextField)
-        return containerView
-    }()
-    
-    private lazy var searchTextField: UITextField = {
-        let textField = CustomTextField(placeHolder: "Search", placeholderColor: UIColor.darkGray)
-        textField.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
-        return textField
-    }()
-    
-    private let topLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Top 5 cryptocurrencies from the top 250 coins by market cap"
-        label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let appName: UILabel = {
-        let label = UILabel()
-        label.text = "Crypto App"
-        label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    
-    
-    
-    
     private func filterContent(for searchText: String) {
         if searchText.isEmpty {
             filteredCryptoList = cryptoList
@@ -216,70 +272,6 @@ class MarketViewController: UIViewController {
         return cryptos.sorted {
             ($0.priceChangePercentage24H ?? 0.0) > ($1.priceChangePercentage24H ?? 0.0)
         }
-    }
-}
-
-// MARK: - Layout and Style
-
-extension MarketViewController {
-    
-    private func style(){
-        collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.decelerationRate = .fast
-
-        dividerView.backgroundColor = .darkGray
-        
-    }
-    
-    private func layout() {
-        view.addSubview(appName)
-        view.addSubview(collectionView)
-        view.addSubview(searchContainerView)
-        view.addSubview(tableView)
-        view.addSubview(dividerView)
-        view.addSubview(topLabel)
-        
-        appName.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        searchContainerView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.translatesAutoresizingMaskIntoConstraints = false
-        topLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            
-            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            appName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            appName.heightAnchor.constraint(equalToConstant: 20),
-            
-            collectionView.topAnchor.constraint(equalTo: appName.bottomAnchor,constant: 10),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            collectionView.heightAnchor.constraint(equalToConstant: 100),
-            
-            topLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 6),
-            topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            dividerView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 6),
-            dividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            dividerView.heightAnchor.constraint(equalToConstant: 1),
-            
-            searchContainerView.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 32),
-            searchContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            searchContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            searchContainerView.heightAnchor.constraint(equalToConstant: 50),
-            
-            tableView.topAnchor.constraint(equalTo: searchContainerView.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
     }
 }
 

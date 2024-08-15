@@ -199,11 +199,11 @@
 			children = (
 				1E1B0B152C6CDC35001558A8 /* AccountView.swift */,
 				1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */,
-				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 				1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */,
 				1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */,
 				1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */,
 				1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */,
+				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
