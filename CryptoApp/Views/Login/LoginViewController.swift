@@ -12,8 +12,9 @@ protocol LoginViewControllerInterface: AnyObject{
     func layout()
     func goRegister()
     func handleLoginButton()
-    func showLoginError(_ errorMessage: String)
+    func showLoginError()
     func LoginSuccess()
+    func isValidEmail(_ email: String) -> Bool
 }
 
 final class LoginViewController: UIViewController {
@@ -118,7 +119,22 @@ extension LoginViewController: LoginViewControllerInterface{
     @objc func handleLoginButton(){
         guard let emailText = emailTextField.text else { return }
         guard let passwordText = passwordTextField.text else { return }
-        viewModel.login(emailText: emailText, passwordText: passwordText)
+        if emailText.isEmpty{
+            self.showHud(show: "Error", detailShow: "Email field cannot be empty", delay: 1.0)
+        }
+        else if passwordText.isEmpty{
+            self.showHud(show: "Error", detailShow: "Password field cannot be empty", delay: 1.0)
+
+        }
+        else{
+            if !isValidEmail(emailText){
+                self.showHud(show: "Error", detailShow: "Please enter a valid email address", delay: 1)
+
+            }else{
+                viewModel.login(emailText: emailText, passwordText: passwordText)
+
+            }
+        }
         
     }
     @objc func goRegister(){
@@ -126,9 +142,17 @@ extension LoginViewController: LoginViewControllerInterface{
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    func showLoginError(_ errorMessage: String){
-        self.showHud(show: "Error", detailShow: errorMessage, delay: 1)
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
+    
+    func showLoginError(){
+        self.showHud(show: "Error", detailShow: "User not found", delay: 1)
+    }
+    
+    
     
     func LoginSuccess(){
         self.showHud(show: "Login Successful",detailShow: "Please Wait", delay: 1)

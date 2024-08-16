@@ -19,6 +19,7 @@ class CryptoTableViewCell: UITableViewCell {
     let cryptoPrice = UILabel()
     let cryptoPriceChange = UILabel()
     var stackView = UIStackView()
+    let errorLabel = UILabel()
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,7 +28,8 @@ class CryptoTableViewCell: UITableViewCell {
         
         cryptoStyle()
         cryptoLayout()
-        
+        setupErrorLabel()
+
         
     }
     
@@ -80,18 +82,19 @@ class CryptoTableViewCell: UITableViewCell {
         
     }
     
-    func getIcon(iconUrl : String){
+    private func getIcon(iconUrl : String){
         NetworkManager.shared.getCryptoImage(iconUrl: iconUrl) { [weak self] data, errorMessage in
-            
+            guard let self = self else { return }
+
             if let errorMessage = errorMessage {
                         DispatchQueue.main.async {
-                            print("Error: \(errorMessage.rawValue)")
+                            self.showError(message: errorMessage.rawValue)
                         }
                         return
             }
             if let data = data {
                 DispatchQueue.main.async {
-                    self?.cryptoImage.image = UIImage(data: data)
+                    self.cryptoImage.image = UIImage(data: data)
                         }
                     }
                 
@@ -170,7 +173,23 @@ extension CryptoTableViewCell {
             
             
         ])
-
-        
     }
+    private func setupErrorLabel() {
+            errorLabel.textColor = .red
+            errorLabel.textAlignment = .center
+            errorLabel.isHidden = true
+            contentView.addSubview(errorLabel)
+            
+            errorLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                errorLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                errorLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                errorLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9)
+            ])
+        }
+    
+    func showError(message: String) {
+            errorLabel.text = message
+            errorLabel.isHidden = false
+        }
 }

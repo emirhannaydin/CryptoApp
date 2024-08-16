@@ -22,20 +22,26 @@ struct AuthenticationService {
     }
     
     static func createUser(user: AuthenticationRegisterUserModel, completion: @escaping(Error?) -> Void){
-        
-        Auth.auth().createUser(withEmail: user.emailText, password: user.passwordText) { result, error in
-            
-            guard let uid = result?.user.uid else { return }
-            let data = [
-            
-                "email": user.emailText,
-                "password:": user.passwordText,
-                "username": user.usernameText,
-                "uid": uid
-            ] as [String: Any]
-            Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
-            
+            Auth.auth().createUser(withEmail: user.emailText, password: user.passwordText) { result, error in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                
+                guard let uid = result?.user.uid else {
+                    completion(NSError(domain: "AuthError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred."]))
+                    return
+                }
+                
+                let data = [
+                    "email": user.emailText,
+                    "username": user.usernameText,
+                    "uid": uid
+                ] as [String: Any]
+                
+                Firestore.firestore().collection("users").document(uid).setData(data) { error in
+                    completion(error)
+                }
+            }
         }
-        
-    }
 }

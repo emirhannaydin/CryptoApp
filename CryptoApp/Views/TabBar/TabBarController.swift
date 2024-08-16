@@ -16,7 +16,6 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userStatus()
         style()
         configureTabBar()
     }
@@ -34,17 +33,7 @@ extension TabBarController{
         
     }
     
-    private func userStatus() {
-        if Auth.auth().currentUser?.uid == nil {
-            print("Kullanıcı yok")
-            let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
-            loginScreenVC.modalPresentationStyle = .fullScreen
-            self.present(loginScreenVC, animated: true)
-            
-        } else {
-            print("Kullanıcı var")
-        }
-    }
+    
     
     private func signout(){
         do {
@@ -54,8 +43,6 @@ extension TabBarController{
                 loginScreenVC.modalPresentationStyle = .fullScreen
                 self.present(loginScreenVC, animated: true)
             }
-            
-            
         } catch {
             print("Çıkış yaparken hata oluştu")
         }

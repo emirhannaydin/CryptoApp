@@ -14,6 +14,7 @@ protocol CryptoDetailsViewControllerInterface: AnyObject{
     func configureChart(prices: [Double])
     func prepareView(crypto: Crypto)
     func changeIcon(data: Data)
+    func showNetworkError(_ errorMessage: ErrorMessage)
 }
 class CryptoDetailsViewController: UIViewController{
     
@@ -306,5 +307,11 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
         DispatchQueue.main.async {
             self.cryptoSymbol.image = UIImage(data: data)
                 }
+    }
+    
+    func showNetworkError(_ errorMessage: ErrorMessage){
+        DispatchQueue.main.async {
+            self.showHud(show: "Error", detailShow: errorMessage.rawValue, delay: 1.0)
+        }
     }
 }

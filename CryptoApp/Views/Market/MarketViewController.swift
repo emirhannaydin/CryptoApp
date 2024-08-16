@@ -8,28 +8,30 @@
 import UIKit
 import FirebaseAuth
 
+protocol MarketViewControllerInterface: AnyObject{
+    func style()
+    func layout()
+    func getSearchText() -> String
+    func reloadCollection()
+    func reloadTable()
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    func userStatus()
+    func searchTextChanged(_ textField: UITextField)
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    func setupTapGesture()
+    func removeTapGesture()
+    func handleTapOutside(_ sender: UITapGestureRecognizer)
+    func showNetworkError(_ errorMessage: ErrorMessage)
+    func showNoDataError()
+    
+}
+
 class MarketViewController: UIViewController {
+    
+    var viewModel = MarketViewModel()
 
-    var cryptoList: [Crypto] = []
-    var filteredCryptoList: [Crypto] = []
-    var top5Cryptos: [Crypto] = []
-    var pageNumber = 1
-    var isLoading = false
-    var isSearching = false
+    
     let dividerView = UIView()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-
-        style()
-        layout()
-        getCrypto(page: pageNumber)
-        userStatus()
-        
-
-    }
-    
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -53,6 +55,10 @@ class MarketViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CryptoCollectionViewCell.self, forCellWithReuseIdentifier: CryptoCollectionViewCell.identifier)
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         return collectionView
     }()
     
@@ -82,23 +88,25 @@ class MarketViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.view = self
+        viewModel.viewDidLoad()
+    }
 }
 
 // MARK: - Functions
 
-extension MarketViewController {
+extension MarketViewController:MarketViewControllerInterface {
     
-    private func style(){
-        collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.decelerationRate = .fast
-
+    func style(){
+        view.backgroundColor = .systemBackground
         dividerView.backgroundColor = .darkGray
         
     }
     
-    private func layout() {
+    func layout(){
         view.addSubview(appName)
         view.addSubview(collectionView)
         view.addSubview(searchContainerView)
@@ -147,60 +155,31 @@ extension MarketViewController {
         ])
     }
     
-    private func getCrypto(page: Int) {
-        isLoading = true
+    
+    func getSearchText() -> String{
+        return self.searchTextField.text ?? ""
+    }
+    func reloadCollection(){
+        self.collectionView.reloadData()
 
-        NetworkManager.shared.getCrypto(pageNumber: page) { result, error in
-            if let error = error {
-                print("Error: \(error.rawValue)")
-                self.isLoading = false
-                return
-            }
-            
-            guard let result = result else {
-                print("No crypto data found")
-                self.isLoading = false
-                return
-            }
-            
-            
-            DispatchQueue.main.async {
-
-                self.cryptoList.append(contentsOf: result)
-                if !self.isSearching {
-                    self.filteredCryptoList = self.cryptoList
-                } else {
-                    self.filterContent(for: self.searchTextField.text ?? "")
-                }
-                
-                if self.top5Cryptos.isEmpty{
-                    self.top5Cryptos = self.getTop5Cryptos(from: self.cryptoList)
-                    self.collectionView.reloadData()
-                }
-                self.tableView.reloadData()
-
-                self.isLoading = false
-                self.pageNumber += 1
-
-
-            }
-        }
-        
+    }
+    func reloadTable(){
+        self.tableView.reloadData()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == tableView {
-            let position = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height - scrollView.frame.size.height
+            if scrollView == tableView {
+                let position = scrollView.contentOffset.y
+                let contentHeight = scrollView.contentSize.height - scrollView.frame.size.height
 
-            if position >= contentHeight + 50 && scrollView.isDragging && !isLoading && !isSearching {
-                getCrypto(page: pageNumber)
+                if position >= contentHeight + 50 && scrollView.isDragging && !viewModel.isLoading && !viewModel.isSearching {
+                    viewModel.getCryptoService(page: viewModel.pageNumber)
+                }
             }
         }
-    }
     
-    private func userStatus() {
-        if Auth.auth().currentUser?.uid == nil {
+    func userStatus() {
+        if viewModel.checkUser() {
             print("Kullanıcı yok")
             let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
                 loginScreenVC.modalPresentationStyle = .fullScreen
@@ -211,21 +190,13 @@ extension MarketViewController {
         }
     }
     
-    private func filterContent(for searchText: String) {
-        if searchText.isEmpty {
-            filteredCryptoList = cryptoList
-        } else {
-            filteredCryptoList = cryptoList.filter { $0.name.lowercased().contains(searchText) }
-        }
-        tableView.reloadData()
-    }
     
-    @objc private func searchTextChanged(_ textField: UITextField) {
+    @objc func searchTextChanged(_ textField: UITextField) {
         let searchText = textField.text?.lowercased() ?? ""
-        isSearching = !searchText.isEmpty
-        filterContent(for: searchText)
+        viewModel.isSearching = !searchText.isEmpty
+        viewModel.filterContent(searchText: searchText)
         
-        if isSearching {
+        if viewModel.isSearching {
                setupTapGesture()
            } else {
                removeTapGesture()
@@ -236,100 +207,42 @@ extension MarketViewController {
     func textFieldDidBeginEditing(_ textField: UITextField) {
             if textField == searchTextField {
                 setupTapGesture()
-
             }
         }
     
-    private func setupTapGesture() {
+    func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutside(_:)))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-        
-       
     }
     
-    private func removeTapGesture() {
+    func removeTapGesture() {
         if let tapGesture = view.gestureRecognizers?.first(where: { $0 is UITapGestureRecognizer }) {
             view.removeGestureRecognizer(tapGesture)
         }
     }
-    
-       
-    @objc private func handleTapOutside(_ sender: UITapGestureRecognizer) {
+    @objc func handleTapOutside(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    func getTop5Cryptos(from cryptos: [Crypto]) -> [Crypto] {
-        let sortedCryptos = cryptos.sorted {
-            ($0.priceChangePercentage24H ?? 0.0) > ($1.priceChangePercentage24H ?? 0.0)
-        }
-        let top5Cryptos = Array(sortedCryptos.prefix(5))
-        return top5Cryptos
-    }
-    
-    func sortCryptosByPriceChangePercentage(_ cryptos: [Crypto]) -> [Crypto] {
+    /*func sortCryptosByPriceChangePercentage(_ cryptos: [Crypto]) -> [Crypto] {
         return cryptos.sorted {
             ($0.priceChangePercentage24H ?? 0.0) > ($1.priceChangePercentage24H ?? 0.0)
         }
-    }
-}
-
-// MARK: - UITableViewDelegate, UITableViewDataSource
-
-extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCryptoList.count
-    }
+    }*/
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CryptoTableViewCell.identifier, for: indexPath) as! CryptoTableViewCell
-        
-        let model = filteredCryptoList[indexPath.row]
-        cell.cryptoSetup(model: model)
-        
-        
-        cell.backgroundColor = UIColor.systemBackground
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        
-        let cryptoDetailVC = CryptoDetailsViewController()
-        cryptoDetailVC.title = "Crypto Details"
-        cryptoDetailVC.crypto = self.filteredCryptoList[indexPath.row]
-        self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
-        print(indexPath.row)
+    func showNetworkError(_ errorMessage: ErrorMessage) {
+        DispatchQueue.main.async {
+            self.showHud(show: "Error" ,detailShow: errorMessage.rawValue, delay: 1)
         }
+    }
+    func showNoDataError(){
+        DispatchQueue.main.async {
+            self.showHud(show: "Error" ,detailShow: "No crypto data found", delay: 1)
+        }
+    }
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 
-extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return top5Cryptos.count // Burada en yüksek 5 kriptoyu gösteriyoruz
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CryptoCollectionViewCell.identifier, for: indexPath) as! CryptoCollectionViewCell
 
-        let model = top5Cryptos[indexPath.row] // En yüksek 5 kriptoyu kullanıyoruz
-        cell.cryptoSetup(model: model)
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 10
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 100)
-    }
-    
-}
 

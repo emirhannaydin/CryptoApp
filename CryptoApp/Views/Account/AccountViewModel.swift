@@ -21,9 +21,11 @@ final class AccountViewModel{
     func fetchUser(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Service.fetchUser(uid: uid) { [weak self] user in
-            self?.user = user
+            guard let self = self else { return }
+
+            self.user = user
             DispatchQueue.main.async {
-                        self?.view?.configureText()
+                        self.view?.configureText()
                     }
         }
     }

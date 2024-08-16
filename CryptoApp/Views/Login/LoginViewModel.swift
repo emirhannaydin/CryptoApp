@@ -18,11 +18,13 @@ final class LoginViewModel{
     
     func login(emailText: String, passwordText: String){
         AuthenticationService.login(emailText: emailText, passwordText: passwordText) { [weak self] result, error in
-            if let error = error {
-                self?.view?.showLoginError(error.localizedDescription)
+            guard let self = self else { return }
+
+            if error != nil {
+                self.view?.showLoginError()
                 return
             }
-            self?.view?.LoginSuccess()
+            self.view?.LoginSuccess()
         }
     }
 }

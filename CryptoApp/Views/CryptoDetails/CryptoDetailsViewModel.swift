@@ -18,15 +18,14 @@ final class CryptoDetailsViewModel{
     
     func getIcon(iconUrl : String){
         NetworkManager.shared.getCryptoImage(iconUrl: iconUrl) { [weak self] data, errorMessage in
+            guard let self = self else { return }
             
             if let errorMessage = errorMessage {
-                        DispatchQueue.main.async {
-                            print("Error: \(errorMessage.rawValue)")
-                        }
-                        return
+                self.view?.showNetworkError(errorMessage)
+                return
             }
             if let data = data {
-                self?.view?.changeIcon(data: data)
+                self.view?.changeIcon(data: data)
                     }
         }
     }

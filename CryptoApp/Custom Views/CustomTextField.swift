@@ -13,7 +13,7 @@ class CustomTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
         borderStyle = .none
         autocorrectionType = .no
-
+        autocapitalizationType = .none
     }
     
     required init?(coder: NSCoder) {

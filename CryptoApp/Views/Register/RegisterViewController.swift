@@ -14,6 +14,8 @@ protocol RegisterViewControllerInterface: AnyObject{
     func goLoginPage()
     func showRegisterError(_ errorMessage: String)
     func registerSuccess()
+    func isValidEmail(_ email: String) -> Bool
+    func isValidPassword(_ password: String) -> Bool
 }
 
 final class RegisterViewController: UIViewController {
@@ -56,7 +58,7 @@ final class RegisterViewController: UIViewController {
     private let passwordTextField : UITextField = {
         let textField = CustomTextField(placeHolder: "Password", placeholderColor: UIColor.white)
         textField.textColor = .white
-        textField.isSecureTextEntry = true
+        //textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -132,9 +134,58 @@ extension RegisterViewController: RegisterViewControllerInterface{
         guard let emailText = emailTextField.text else { return }
         guard let passwordText = passwordTextField.text else { return }
         guard let usernameText = usernameTextField.text else { return }
-        viewModel.register(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
         
+        if emailText.isEmpty{
+            self.showHud(show: "Error" ,detailShow: "Email field cannot be empty", delay: 1)
+            
+        }
+        else if passwordText.isEmpty{
+            self.showHud(show: "Error" ,detailShow: "Password field cannot be empty", delay: 1)
+            
+        }
+        else if usernameText.isEmpty{
+            self.showHud(show: "Error" ,detailShow: "Username field cannot be empty", delay: 1)
+            
+        }
+        else{
+            if !isValidEmail(emailText.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                self.showHud(show: "Error" ,detailShow: "Please enter a valid email address", delay: 1)
+            }
+            else if !isValidPassword(passwordText){
+                if passwordText.count < 8 {
+                    self.showHud(show: "Error" ,detailShow: "Password must be at least 8 characters long.", delay: 1) }
+                
+                else if !passwordText.contains(where: { $0.isLowercase }) {
+                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one lowercase letter", delay: 1.5)
+                        }
+                else if !passwordText.contains(where: { $0.isUppercase }) {
+                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one uppercase letter", delay: 1.5)
+                }
+                
+                else if !passwordText.contains(where: { $0.isNumber }) {
+                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one digit", delay: 1.5)                        }
+                else if !passwordText.contains(where: { "!@$%*?&#_-".contains($0) }) {
+                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one special character (e.g., $, @, !, %, *, ?, &, #, _, -).", delay: 1.5)
+                }
+            }
+            else{
+                viewModel.register(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
+            }
+        }
     }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#_-])[A-Za-z\\dd$@$!%*?&#_-]{8,}$"
+
+        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return passwordPred.evaluate(with: password)
+    }
+    
     @objc func goLoginPage(){
         let controller = LoginViewController()
         self.navigationController?.pushViewController(controller, animated: true)
@@ -145,12 +196,18 @@ extension RegisterViewController: RegisterViewControllerInterface{
     }
     
     func registerSuccess(){
-        let viewController = UINavigationController(rootViewController: TabBarController())
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
-            window.rootViewController = viewController
-            window.makeKeyAndVisible()
+        self.showHud(show: "You are being redirected to the home page",detailShow: "Please Wait", delay: 1.5)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            let viewController = UINavigationController(rootViewController: TabBarController())
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                window.rootViewController = viewController
+                window.makeKeyAndVisible()
+            }
+            
+            }
         }
         
+        
     }
-}
+

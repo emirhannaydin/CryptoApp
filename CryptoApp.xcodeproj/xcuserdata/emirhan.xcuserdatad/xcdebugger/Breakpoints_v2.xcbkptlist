@@ -173,8 +173,8 @@
             filePath = "CryptoApp/Manager/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getCrypto(pageNumber:completion:)"
             landmarkType = "7">
             <Locations>
@@ -229,22 +229,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EDF00F96-7F20-47B0-A7BD-6E4E91BCABF7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CryptoApp/Manager/NetworkManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getCrypto(pageNumber:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6947C8B6-72AA-4E2B-919B-E9B77BC84C38"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -252,8 +236,8 @@
             filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getIcon(iconUrl:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -268,8 +252,8 @@
             filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "getIcon(iconUrl:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -284,8 +268,8 @@
             filePath = "CryptoApp/Custom Views/CustomCell/CryptoCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "cryptoSetup(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -300,8 +284,8 @@
             filePath = "CryptoApp/Custom Views/CustomCell/CryptoTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "cryptoSetup(model:)"
             landmarkType = "7">
          </BreakpointContent>

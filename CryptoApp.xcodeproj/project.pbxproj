@@ -63,6 +63,9 @@
 		1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */; };
 		1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */; };
 		1E9A95C82C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */; };
+		1E9A95CD2C6F4B2D00C3CE1B /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */; };
+		1E9A95D02C6F587B00C3CE1B /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95CF2C6F587B00C3CE1B /* TableViewExtensions.swift */; };
+		1E9A95D22C6F588400C3CE1B /* CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +103,9 @@
 		1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsViewModel.swift; sourceTree = "<group>"; };
+		1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		1E9A95CF2C6F587B00C3CE1B /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,13 +254,13 @@
 		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95CB2C6F4B1900C3CE1B /* TabBar */,
+				1E9A95CA2C6F4B1200C3CE1B /* Favorites */,
+				1E9A95C92C6F4AFB00C3CE1B /* Market */,
 				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
 				1E9A95C32C6E214F00C3CE1B /* Account */,
 				1E9A95C02C6E1B6500C3CE1B /* Register */,
 				1E9A95BD2C6E121D00C3CE1B /* Login */,
-				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
-				1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */,
-				1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +299,41 @@
 				1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */,
 			);
 			path = CryptoDetails;
+			sourceTree = "<group>";
+		};
+		1E9A95C92C6F4AFB00C3CE1B /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A95CE2C6F4B7D00C3CE1B /* Utilities */,
+				1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */,
+				1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		1E9A95CA2C6F4B1200C3CE1B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		1E9A95CB2C6F4B1900C3CE1B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1E9A95CE2C6F4B7D00C3CE1B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A95CF2C6F587B00C3CE1B /* TableViewExtensions.swift */,
+				1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
@@ -470,6 +511,7 @@
 				1E1B0B102C6CADE6001558A8 /* TabBarController.swift in Sources */,
 				1E99F2D42C6225BB00E1B6D0 /* CustomTextField.swift in Sources */,
 				1E1B0B122C6CD4E8001558A8 /* User.swift in Sources */,
+				1E9A95D02C6F587B00C3CE1B /* TableViewExtensions.swift in Sources */,
 				1E1B0B162C6CDC35001558A8 /* AccountView.swift in Sources */,
 				1E99F2D82C62392B00E1B6D0 /* RegisterViewController.swift in Sources */,
 				1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */,
@@ -479,7 +521,9 @@
 				1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */,
 				1E99F2DA2C623AEB00E1B6D0 /* CustomLoginImageView.swift in Sources */,
 				1E99F2D22C62246C00E1B6D0 /* AuthenticationInputView.swift in Sources */,
+				1E9A95D22C6F588400C3CE1B /* CollectionViewExtensions.swift in Sources */,
 				1E99F2CE2C6219E700E1B6D0 /* Extensions.swift in Sources */,
+				1E9A95CD2C6F4B2D00C3CE1B /* MarketViewModel.swift in Sources */,
 				1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */,
 				1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */,
 				1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */,

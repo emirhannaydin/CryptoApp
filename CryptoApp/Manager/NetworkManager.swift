@@ -24,6 +24,7 @@ final class NetworkManager {
         guard let url = URL(string: endpoint) else {
             
             completion(nil, .invalidURL)
+            
             return
         }
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -46,7 +47,6 @@ final class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let cryptoList = try decoder.decode([Crypto].self, from: data)
-                print(cryptoList)
                 completion(cryptoList, nil)
             } catch {
                 print("Decoding error: \(error)")
