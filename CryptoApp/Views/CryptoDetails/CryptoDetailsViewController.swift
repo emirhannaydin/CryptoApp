@@ -8,7 +8,16 @@
 import UIKit
 import Charts
 
-class CryptoDetailViewController: UIViewController{
+protocol CryptoDetailsViewControllerInterface: AnyObject{
+    func style()
+    func layout()
+    func configureChart(prices: [Double])
+    func prepareView(crypto: Crypto)
+    func changeIcon(data: Data)
+}
+class CryptoDetailsViewController: UIViewController{
+    
+        lazy var viewModel = CryptoDetailsViewModel()
     
         let cryptoName = UILabel()
         let cryptoSymbol = UIImageView()
@@ -57,18 +66,18 @@ class CryptoDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        viewModel.view = self
+        viewModel.viewDidLoad()
         prepareView(crypto: crypto!)
-        style()
-        layout()
+       
         
     }
     
 }
 
-extension CryptoDetailViewController{
+extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
     func style(){
-        
+        view.backgroundColor = .systemBackground
         cryptoSV = UIStackView(arrangedSubviews: [cryptoSymbol, cryptoName])
         cryptoSV.axis = .horizontal
         cryptoSV.distribution = .fill
@@ -230,7 +239,7 @@ extension CryptoDetailViewController{
         ])
     }
     
-    func configureChart(with prices: [Double]) {
+    func configureChart(prices: [Double]) {
             var entries: [ChartDataEntry] = []
             
             for (index, price) in prices.enumerated() {
@@ -249,12 +258,6 @@ extension CryptoDetailViewController{
         }
     
     func prepareView(crypto: Crypto){
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.locale = Locale(identifier: "en_EN")
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 8
         
         let formattedPriceChangeValue = String(format: "%.2f", crypto.priceChange24H ?? 0.0)
         cryptoName.text = "\(crypto.name)"
@@ -293,26 +296,15 @@ extension CryptoDetailViewController{
         marketCapChange24h.text = "\(formatNumber(crypto.marketCapChange24H))"
         
         if let prices = crypto.sparklineIn7D?.price {
-            configureChart(with: prices)
+            configureChart(prices: prices)
            }
-        getIcon(iconUrl: crypto.image)
+        viewModel.getIcon(iconUrl: crypto.image)
         
     }
     
-    func getIcon(iconUrl : String){
-        NetworkManager.shared.getCryptoImage(iconUrl: iconUrl) { [weak self] data, errorMessage in
-            
-            if let errorMessage = errorMessage {
-                        DispatchQueue.main.async {
-                            print("Error: \(errorMessage.rawValue)")
-                        }
-                        return
-            }
-            if let data = data {
-                DispatchQueue.main.async {
-                    self?.cryptoSymbol.image = UIImage(data: data)
-                        }
-                    }
-        }
+    func changeIcon(data: Data){
+        DispatchQueue.main.async {
+            self.cryptoSymbol.image = UIImage(data: data)
+                }
     }
 }

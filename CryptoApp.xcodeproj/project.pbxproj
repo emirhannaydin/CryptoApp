@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E1B0B0E2C6B5707001558A8 /* CryptoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */; };
+		1E1B0B0E2C6B5707001558A8 /* CryptoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1B0B0D2C6B5707001558A8 /* CryptoDetailsViewController.swift */; };
 		1E1B0B102C6CADE6001558A8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */; };
 		1E1B0B122C6CD4E8001558A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1B0B112C6CD4E8001558A8 /* User.swift */; };
 		1E1B0B142C6CD579001558A8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1B0B132C6CD579001558A8 /* Service.swift */; };
@@ -62,11 +62,12 @@
 		1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */; };
 		1E9A95C22C6E1B7300C3CE1B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */; };
 		1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */; };
+		1E9A95C82C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewController.swift; sourceTree = "<group>"; };
+		1E1B0B0D2C6B5707001558A8 /* CryptoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsViewController.swift; sourceTree = "<group>"; };
 		1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1E1B0B112C6CD4E8001558A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1E1B0B132C6CD579001558A8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1E9A95C12C6E1B7300C3CE1B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsViewModel.swift; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,10 +248,10 @@
 		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
 				1E9A95C32C6E214F00C3CE1B /* Account */,
 				1E9A95C02C6E1B6500C3CE1B /* Register */,
 				1E9A95BD2C6E121D00C3CE1B /* Login */,
-				1E1B0B0D2C6B5707001558A8 /* CryptoDetailViewController.swift */,
 				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
 				1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */,
 				1E1B0B0F2C6CADE6001558A8 /* TabBarController.swift */,
@@ -282,6 +284,15 @@
 				1E9A95C42C6E216000C3CE1B /* AccountViewModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1E1B0B0D2C6B5707001558A8 /* CryptoDetailsViewController.swift */,
+				1E9A95C72C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift */,
+			);
+			path = CryptoDetails;
 			sourceTree = "<group>";
 		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
@@ -452,7 +463,7 @@
 				1E1B0B142C6CD579001558A8 /* Service.swift in Sources */,
 				1E99F31B2C63A22700E1B6D0 /* CustomSearchInputView.swift in Sources */,
 				1E99F3192C639B4D00E1B6D0 /* AccountViewController.swift in Sources */,
-				1E1B0B0E2C6B5707001558A8 /* CryptoDetailViewController.swift in Sources */,
+				1E1B0B0E2C6B5707001558A8 /* CryptoDetailsViewController.swift in Sources */,
 				1E99F3312C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift in Sources */,
 				1E99F3282C63A6AB00E1B6D0 /* Crypto.swift in Sources */,
 				1E99F2B62C6217D300E1B6D0 /* AppDelegate.swift in Sources */,
@@ -474,6 +485,7 @@
 				1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */,
 				1E99F3202C63A59F00E1B6D0 /* NetworkManager.swift in Sources */,
 				1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */,
+				1E9A95C82C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift in Sources */,
 				1E99F3102C6249C600E1B6D0 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

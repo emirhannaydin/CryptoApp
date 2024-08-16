@@ -203,10 +203,9 @@ extension MarketViewController {
         if Auth.auth().currentUser?.uid == nil {
             print("Kullanıcı yok")
             let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
-            DispatchQueue.main.async {
                 loginScreenVC.modalPresentationStyle = .fullScreen
                 self.present(loginScreenVC, animated: true)
-            }
+            
         } else {
             print("Kullanıcı var")
         }
@@ -301,7 +300,7 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
 
         
-        let cryptoDetailVC = CryptoDetailViewController()
+        let cryptoDetailVC = CryptoDetailsViewController()
         cryptoDetailVC.title = "Crypto Details"
         cryptoDetailVC.crypto = self.filteredCryptoList[indexPath.row]
         self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
