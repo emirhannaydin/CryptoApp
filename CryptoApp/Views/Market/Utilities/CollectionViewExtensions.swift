@@ -30,9 +30,13 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let cryptoDetailVC = CryptoDetailsViewController()
-        cryptoDetailVC.crypto = self.viewModel.top5Cryptos[indexPath.row]
-        self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
+        
+        AnimationManager.showAnimation(on: self, animationName: "transitionAnimation") {
+            
+            let cryptoDetailVC = CryptoDetailsViewController()
+            cryptoDetailVC.crypto = self.viewModel.top5Cryptos[indexPath.row]
+            self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
+        }
     }
     
 }

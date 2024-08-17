@@ -68,6 +68,8 @@
 		1E9A95D62C70E36C00C3CE1B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */; };
 		1E9A95D92C70E47700C3CE1B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9A95D82C70E47700C3CE1B /* Lottie */; };
 		1E9A95DB2C70E54700C3CE1B /* lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A95DA2C70E54700C3CE1B /* lottie.json */; };
+		1E9A95DE2C70EAA900C3CE1B /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95DD2C70EAA900C3CE1B /* AnimationManager.swift */; };
+		1E9A95E22C70ECEC00C3CE1B /* transitionAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +111,8 @@
 		1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
 		1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		1E9A95DA2C70E54700C3CE1B /* lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie.json; sourceTree = "<group>"; };
+		1E9A95DD2C70EAA900C3CE1B /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transitionAnimation.json; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */,
 				1E9A95DA2C70E54700C3CE1B /* lottie.json */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
@@ -243,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				1E99F31F2C63A59F00E1B6D0 /* NetworkManager.swift */,
+				1E9A95DD2C70EAA900C3CE1B /* AnimationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9A95E22C70ECEC00C3CE1B /* transitionAnimation.json in Resources */,
 				1E9A95DB2C70E54700C3CE1B /* lottie.json in Resources */,
 				1E99F2C22C6217D400E1B6D0 /* LaunchScreen.storyboard in Resources */,
 				1E99F2BF2C6217D400E1B6D0 /* Assets.xcassets in Resources */,
@@ -520,6 +527,7 @@
 				1E99F2D42C6225BB00E1B6D0 /* CustomTextField.swift in Sources */,
 				1E1B0B122C6CD4E8001558A8 /* User.swift in Sources */,
 				1E9A95D02C6F587B00C3CE1B /* TableViewExtensions.swift in Sources */,
+				1E9A95DE2C70EAA900C3CE1B /* AnimationManager.swift in Sources */,
 				1E1B0B162C6CDC35001558A8 /* AccountView.swift in Sources */,
 				1E99F2D82C62392B00E1B6D0 /* RegisterViewController.swift in Sources */,
 				1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */,

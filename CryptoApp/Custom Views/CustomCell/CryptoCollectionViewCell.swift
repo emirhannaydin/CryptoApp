@@ -68,7 +68,7 @@ extension CryptoCollectionViewCell{
     func cryptoStyle(){
         firstStackView = UIStackView(arrangedSubviews: [cryptoName, cryptoPrice])
         firstStackView.axis = .horizontal
-        firstStackView.spacing = 0
+        firstStackView.spacing = 1
         firstStackView.distribution = .fillProportionally
         cryptoName.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         cryptoPrice.font = UIFont.systemFont(ofSize: 12, weight: .medium)

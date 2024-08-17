@@ -47,11 +47,6 @@ class MarketViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
-        
-        collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.decelerationRate = .fast
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CryptoCollectionViewCell.self, forCellWithReuseIdentifier: CryptoCollectionViewCell.identifier)
@@ -59,6 +54,7 @@ class MarketViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.decelerationRate = .fast
+        
         return collectionView
     }()
     
@@ -189,8 +185,6 @@ extension MarketViewController:MarketViewControllerInterface {
             print("Kullanıcı var")
         }
     }
-    
-    
     @objc func searchTextChanged(_ textField: UITextField) {
         let searchText = textField.text?.lowercased() ?? ""
         viewModel.isSearching = !searchText.isEmpty
@@ -201,7 +195,6 @@ extension MarketViewController:MarketViewControllerInterface {
            } else {
                removeTapGesture()
            }
-
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
