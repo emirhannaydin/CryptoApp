@@ -10,13 +10,13 @@ import UIKit
 extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.top5Cryptos.count // Burada en yüksek 5 kriptoyu gösteriyoruz
+        return viewModel.top5Cryptos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CryptoCollectionViewCell.identifier, for: indexPath) as! CryptoCollectionViewCell
 
-        let model = viewModel.top5Cryptos[indexPath.row] // En yüksek 5 kriptoyu kullanıyoruz
+        let model = viewModel.top5Cryptos[indexPath.row]
         cell.cryptoSetup(model: model)
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
@@ -26,6 +26,13 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let cryptoDetailVC = CryptoDetailsViewController()
+        cryptoDetailVC.crypto = self.viewModel.top5Cryptos[indexPath.row]
+        self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
     }
     
 }

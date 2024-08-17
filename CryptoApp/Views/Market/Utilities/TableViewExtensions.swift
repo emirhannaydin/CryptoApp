@@ -32,7 +32,6 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
 
         
         let cryptoDetailVC = CryptoDetailsViewController()
-        cryptoDetailVC.title = "Crypto Details"
         cryptoDetailVC.crypto = self.viewModel.filteredCryptoList[indexPath.row]
         self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
         print(indexPath.row)

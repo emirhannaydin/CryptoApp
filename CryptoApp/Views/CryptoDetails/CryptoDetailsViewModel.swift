@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 protocol CryptoDetailsViewModelInterface{
     var view: CryptoDetailsViewControllerInterface? { get set }
     
@@ -26,10 +27,12 @@ final class CryptoDetailsViewModel{
             }
             if let data = data {
                 self.view?.changeIcon(data: data)
-                    }
+            }
         }
     }
+    
 }
+
 
 extension CryptoDetailsViewModel: CryptoDetailsViewModelInterface{
     
@@ -37,8 +40,4 @@ extension CryptoDetailsViewModel: CryptoDetailsViewModelInterface{
         view?.style()
         view?.layout()
     }
-    
-    
-    
-    
 }

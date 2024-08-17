@@ -47,6 +47,8 @@ final class MarketViewModel{
                 self.cryptoList.append(contentsOf: result)
                 if !self.isSearching {
                     self.filteredCryptoList = self.cryptoList
+                    self.view?.reloadTable()
+
                 } else {
                     if let searchText = self.view?.getSearchText() {
                         self.filterContent(searchText: searchText)
@@ -57,7 +59,6 @@ final class MarketViewModel{
                     self.top5Cryptos = self.getTop5Cryptos(from: self.cryptoList)
                     self.view?.reloadCollection()
                 }
-                self.view?.reloadTable()
                 self.isLoading = false
                 self.pageNumber += 1
             }

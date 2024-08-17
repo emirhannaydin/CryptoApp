@@ -49,7 +49,6 @@
 		1E99F30B2C62478400E1B6D0 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F30A2C62478400E1B6D0 /* FirebaseVertexAI-Preview */; };
 		1E99F3102C6249C600E1B6D0 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F30F2C6249C600E1B6D0 /* AuthenticationService.swift */; };
 		1E99F3152C63779900E1B6D0 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F3142C63779900E1B6D0 /* JGProgressHUD */; };
-		1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */; };
 		1E99F3192C639B4D00E1B6D0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */; };
 		1E99F31B2C63A22700E1B6D0 /* CustomSearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */; };
 		1E99F3202C63A59F00E1B6D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F31F2C63A59F00E1B6D0 /* NetworkManager.swift */; };
@@ -90,7 +89,6 @@
 		1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginImageView.swift; sourceTree = "<group>"; };
 		1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E99F30F2C6249C600E1B6D0 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1E99F3182C639B4D00E1B6D0 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchInputView.swift; sourceTree = "<group>"; };
 		1E99F31F2C63A59F00E1B6D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -169,15 +167,15 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
-				1E9A95BC2C6E120C00C3CE1B /* Views */,
-				1E99F3242C63A68600E1B6D0 /* Models */,
-				1E99F31E2C63A59600E1B6D0 /* Manager */,
-				1E99F30E2C6249B000E1B6D0 /* Service */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
 				1E99F2C32C6217D400E1B6D0 /* Info.plist */,
+				1E99F31E2C63A59600E1B6D0 /* Manager */,
+				1E99F3242C63A68600E1B6D0 /* Models */,
+				1E99F30E2C6249B000E1B6D0 /* Service */,
 				1E99F2CC2C6219A100E1B6D0 /* Supporting */,
 				1E99F2CB2C62199500E1B6D0 /* Utilities */,
+				1E9A95BC2C6E120C00C3CE1B /* Views */,
 			);
 			path = CryptoApp;
 			sourceTree = "<group>";
@@ -255,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				1E9A95CB2C6F4B1900C3CE1B /* TabBar */,
-				1E9A95CA2C6F4B1200C3CE1B /* Favorites */,
 				1E9A95C92C6F4AFB00C3CE1B /* Market */,
 				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
 				1E9A95C32C6E214F00C3CE1B /* Account */,
@@ -309,14 +306,6 @@
 				1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */,
 			);
 			path = Market;
-			sourceTree = "<group>";
-		};
-		1E9A95CA2C6F4B1200C3CE1B /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				1E99F3162C6399F700E1B6D0 /* FavoritesViewController.swift */,
-			);
-			path = Favorites;
 			sourceTree = "<group>";
 		};
 		1E9A95CB2C6F4B1900C3CE1B /* TabBar */ = {
@@ -528,7 +517,6 @@
 				1E9A95C52C6E216000C3CE1B /* AccountViewModel.swift in Sources */,
 				1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */,
 				1E99F3202C63A59F00E1B6D0 /* NetworkManager.swift in Sources */,
-				1E99F3172C6399F700E1B6D0 /* FavoritesViewController.swift in Sources */,
 				1E9A95C82C6E5C3100C3CE1B /* CryptoDetailsViewModel.swift in Sources */,
 				1E99F3102C6249C600E1B6D0 /* AuthenticationService.swift in Sources */,
 			);

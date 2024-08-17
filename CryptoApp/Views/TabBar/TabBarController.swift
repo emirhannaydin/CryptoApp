@@ -11,7 +11,6 @@ import FirebaseAuth
 class TabBarController: UITabBarController {
 
     let marketVC = MarketViewController()
-    let favoriteVC = FavoritesViewController()
     let accountVC = AccountViewController()
     
     override func viewDidLoad() {
@@ -25,27 +24,7 @@ class TabBarController: UITabBarController {
 extension TabBarController{
     private func style(){
         viewControllers = [configureViewController(rootViewController: marketVC, title: "Market", image: "chart.xyaxis.line"),
-                           configureViewController(rootViewController: favoriteVC, title: "Favorites", image: "star"),
                            configureViewController(rootViewController: accountVC, title: "Account", image: "person")]
-    }
-    
-    private func layout(){
-        
-    }
-    
-    
-    
-    private func signout(){
-        do {
-            try Auth.auth().signOut()
-            let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
-            DispatchQueue.main.async {
-                loginScreenVC.modalPresentationStyle = .fullScreen
-                self.present(loginScreenVC, animated: true)
-            }
-        } catch {
-            print("Çıkış yaparken hata oluştu")
-        }
     }
     
     private func configureViewController(rootViewController: UIViewController, title: String, image: String) -> UINavigationController{

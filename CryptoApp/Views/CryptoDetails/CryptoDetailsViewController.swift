@@ -18,39 +18,39 @@ protocol CryptoDetailsViewControllerInterface: AnyObject{
 }
 class CryptoDetailsViewController: UIViewController{
     
-        lazy var viewModel = CryptoDetailsViewModel()
+    lazy var viewModel = CryptoDetailsViewModel()
     
-        let cryptoName = UILabel()
-        let cryptoSymbol = UIImageView()
-        let overviewTitle = UILabel()
-        let additionalDetailTitle = UILabel()
-        let currentPrice = UILabel()
-        let currentPriceChange = UILabel()
-        let marketCap = UILabel()
-        let marketCapChange = UILabel()
-        let rank = UILabel()
-        let volume = UILabel()
-        let maxPrice24h = UILabel()
-        let minPrice24h = UILabel()
-        let priceChange24h = UILabel()
-        let marketCapChange24h = UILabel()
-        
-        var cryptoSV = UIStackView()
-        var currentPriceSV = UIStackView()
-        var marketCapSV = UIStackView()
-        var rankSV = UIStackView()
-        var volumeSV = UIStackView()
-        var maxPrice24hSV = UIStackView()
-        var minPrice24hSV = UIStackView()
-        var priceChange24hSV = UIStackView()
-        var marketCapChange24hSV = UIStackView()
+    let cryptoName = UILabel()
+    let cryptoSymbol = UIImageView()
+    let overviewTitle = UILabel()
+    let additionalDetailTitle = UILabel()
+    let currentPrice = UILabel()
+    let currentPriceChange = UILabel()
+    let marketCap = UILabel()
+    let marketCapChange = UILabel()
+    let rank = UILabel()
+    let volume = UILabel()
+    let maxPrice24h = UILabel()
+    let minPrice24h = UILabel()
+    let priceChange24h = UILabel()
+    let marketCapChange24h = UILabel()
     
-        var firstSV = UIStackView()
-        var secondSV = UIStackView()
-        var thirdSV = UIStackView()
-        var fourthSV = UIStackView()
+    var cryptoSV = UIStackView()
+    var currentPriceSV = UIStackView()
+    var marketCapSV = UIStackView()
+    var rankSV = UIStackView()
+    var volumeSV = UIStackView()
+    var maxPrice24hSV = UIStackView()
+    var minPrice24hSV = UIStackView()
+    var priceChange24hSV = UIStackView()
+    var marketCapChange24hSV = UIStackView()
+    
+    var firstSV = UIStackView()
+    var secondSV = UIStackView()
+    var thirdSV = UIStackView()
+    var fourthSV = UIStackView()
 
-        var crypto: Crypto?
+    var crypto: Crypto?
     
     private let lineChartView: LineChartView = {
             let chartView = LineChartView()
@@ -64,7 +64,6 @@ class CryptoDetailsViewController: UIViewController{
             return chartView
         }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.view = self
@@ -77,6 +76,7 @@ class CryptoDetailsViewController: UIViewController{
 }
 
 extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
+    
     func style(){
         view.backgroundColor = .systemBackground
         cryptoSV = UIStackView(arrangedSubviews: [cryptoSymbol, cryptoName])
