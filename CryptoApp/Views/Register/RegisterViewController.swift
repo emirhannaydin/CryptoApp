@@ -58,7 +58,7 @@ final class RegisterViewController: UIViewController {
     private let passwordTextField : UITextField = {
         let textField = CustomTextField(placeHolder: "Password", placeholderColor: UIColor.white)
         textField.textColor = .white
-        //textField.isSecureTextEntry = true
+        textField.isSecureTextEntry = true
         return textField
     }()
     
