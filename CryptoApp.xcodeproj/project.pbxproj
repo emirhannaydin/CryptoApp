@@ -65,6 +65,9 @@
 		1E9A95CD2C6F4B2D00C3CE1B /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */; };
 		1E9A95D02C6F587B00C3CE1B /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95CF2C6F587B00C3CE1B /* TableViewExtensions.swift */; };
 		1E9A95D22C6F588400C3CE1B /* CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */; };
+		1E9A95D62C70E36C00C3CE1B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */; };
+		1E9A95D92C70E47700C3CE1B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9A95D82C70E47700C3CE1B /* Lottie */; };
+		1E9A95DB2C70E54700C3CE1B /* lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A95DA2C70E54700C3CE1B /* lottie.json */; };
 		78D6D947CF8A0871D43B2554 /* Pods_CryptoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +107,8 @@
 		1E9A95CC2C6F4B2D00C3CE1B /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		1E9A95CF2C6F587B00C3CE1B /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
 		1E9A95D12C6F588400C3CE1B /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
+		1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		1E9A95DA2C70E54700C3CE1B /* lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie.json; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 				1E99F2FD2C62478400E1B6D0 /* FirebaseInstallations in Frameworks */,
 				1E99F3032C62478400E1B6D0 /* FirebasePerformance in Frameworks */,
 				1E99F2F52C62478400E1B6D0 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				1E9A95D92C70E47700C3CE1B /* Lottie in Frameworks */,
 				1E99F2F32C62478400E1B6D0 /* FirebaseFirestore in Frameworks */,
 				1E99F2F12C62478400E1B6D0 /* FirebaseDynamicLinks in Frameworks */,
 				1E99F2FB2C62478400E1B6D0 /* FirebaseInAppMessaging-Beta in Frameworks */,
@@ -167,6 +173,7 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95DA2C70E54700C3CE1B /* lottie.json */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
 				1E99F2C32C6217D400E1B6D0 /* Info.plist */,
@@ -252,6 +259,7 @@
 		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95DC2C70EA6600C3CE1B /* SplashScreen */,
 				1E9A95CB2C6F4B1900C3CE1B /* TabBar */,
 				1E9A95C92C6F4AFB00C3CE1B /* Market */,
 				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
@@ -325,6 +333,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		1E9A95DC2C70EA6600C3CE1B /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +402,7 @@
 				1E99F30A2C62478400E1B6D0 /* FirebaseVertexAI-Preview */,
 				1E99F3142C63779900E1B6D0 /* JGProgressHUD */,
 				1E99F32E2C66101A00E1B6D0 /* Kingfisher */,
+				1E9A95D82C70E47700C3CE1B /* Lottie */,
 			);
 			productName = CryptoApp;
 			productReference = 1E99F2B22C6217D300E1B6D0 /* CryptoApp.app */;
@@ -419,6 +436,7 @@
 				1E99F2DD2C62478400E1B6D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1E99F3132C63779900E1B6D0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				1E99F32D2C66101A00E1B6D0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1E9A95D72C70E47700C3CE1B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1E99F2B32C6217D300E1B6D0 /* Products */;
 			projectDirPath = "";
@@ -434,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9A95DB2C70E54700C3CE1B /* lottie.json in Resources */,
 				1E99F2C22C6217D400E1B6D0 /* LaunchScreen.storyboard in Resources */,
 				1E99F2BF2C6217D400E1B6D0 /* Assets.xcassets in Resources */,
 				1E99F2DC2C6246C100E1B6D0 /* GoogleService-Info.plist in Resources */,
@@ -507,6 +526,7 @@
 				1E99F2D62C622C3A00E1B6D0 /* CustomLoginButton.swift in Sources */,
 				1E99F32C2C66027800E1B6D0 /* CryptoTableViewCell.swift in Sources */,
 				1E99F2B82C6217D300E1B6D0 /* SceneDelegate.swift in Sources */,
+				1E9A95D62C70E36C00C3CE1B /* SplashScreenViewController.swift in Sources */,
 				1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */,
 				1E99F2DA2C623AEB00E1B6D0 /* CustomLoginImageView.swift in Sources */,
 				1E99F2D22C62246C00E1B6D0 /* AuthenticationInputView.swift in Sources */,
@@ -765,6 +785,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		1E9A95D72C70E47700C3CE1B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -892,6 +920,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E99F32D2C66101A00E1B6D0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		1E9A95D82C70E47700C3CE1B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E9A95D72C70E47700C3CE1B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -30,10 +30,8 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        
         let cryptoDetailVC = CryptoDetailsViewController()
         cryptoDetailVC.crypto = self.viewModel.filteredCryptoList[indexPath.row]
         self.navigationController?.pushViewController(cryptoDetailVC, animated: true)
-        print(indexPath.row)
         }
 }

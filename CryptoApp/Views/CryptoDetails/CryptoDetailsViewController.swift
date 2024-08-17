@@ -20,6 +20,8 @@ class CryptoDetailsViewController: UIViewController{
     
     lazy var viewModel = CryptoDetailsViewModel()
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     let cryptoName = UILabel()
     let cryptoSymbol = UIImageView()
     let overviewTitle = UILabel()
@@ -69,7 +71,7 @@ class CryptoDetailsViewController: UIViewController{
         viewModel.view = self
         viewModel.viewDidLoad()
         prepareView(crypto: crypto!)
-       
+
         
     }
     
@@ -188,15 +190,19 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
         
     }
     func layout(){
-        view.addSubview(cryptoSV)
-        view.addSubview(lineChartView)
-        view.addSubview(overviewTitle)
-        view.addSubview(additionalDetailTitle)
-        view.addSubview(firstSV)
-        view.addSubview(secondSV)
-        view.addSubview(thirdSV)
-        view.addSubview(fourthSV)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(cryptoSV)
+        contentView.addSubview(lineChartView)
+        contentView.addSubview(overviewTitle)
+        contentView.addSubview(additionalDetailTitle)
+        contentView.addSubview(firstSV)
+        contentView.addSubview(secondSV)
+        contentView.addSubview(thirdSV)
+        contentView.addSubview(fourthSV)
 
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         cryptoSV.translatesAutoresizingMaskIntoConstraints = false
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
         overviewTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -208,35 +214,49 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
         
 
         NSLayoutConstraint.activate([
-            cryptoSV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            cryptoSV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            cryptoSV.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cryptoSV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             
             lineChartView.topAnchor.constraint(equalTo: cryptoSV.bottomAnchor, constant: 10),
-            lineChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            lineChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            lineChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            lineChartView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             lineChartView.heightAnchor.constraint(equalToConstant: 200),
             
             overviewTitle.topAnchor.constraint(equalTo: lineChartView.bottomAnchor, constant: 20),
-            overviewTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            overviewTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            overviewTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            overviewTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             overviewTitle.heightAnchor.constraint(equalToConstant: 50),
             
             firstSV.topAnchor.constraint(equalTo: overviewTitle.bottomAnchor, constant: 10),
-            firstSV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            firstSV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
             secondSV.topAnchor.constraint(equalTo: overviewTitle.bottomAnchor, constant: 10),
-            secondSV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            secondSV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             additionalDetailTitle.topAnchor.constraint(equalTo: firstSV.bottomAnchor, constant: 20),
-            additionalDetailTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            additionalDetailTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            additionalDetailTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            additionalDetailTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             additionalDetailTitle.heightAnchor.constraint(equalToConstant: 50),
             
             thirdSV.topAnchor.constraint(equalTo: additionalDetailTitle.bottomAnchor, constant: 10),
-            thirdSV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            thirdSV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            thirdSV.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -5),
             
             fourthSV.topAnchor.constraint(equalTo: additionalDetailTitle.bottomAnchor, constant: 10),
-            fourthSV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            fourthSV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            fourthSV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+
         ])
     }
     

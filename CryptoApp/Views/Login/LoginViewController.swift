@@ -152,8 +152,6 @@ extension LoginViewController: LoginViewControllerInterface{
         self.showHud(show: "Error", detailShow: "User not found", delay: 1)
     }
     
-    
-    
     func LoginSuccess(){
         self.showHud(show: "Login Successful",detailShow: "Please Wait", delay: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
