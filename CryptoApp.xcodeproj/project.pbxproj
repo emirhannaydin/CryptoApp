@@ -177,8 +177,7 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
-				1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */,
-				1E9A95DA2C70E54700C3CE1B /* lottie.json */,
+				1E9A95E32C70F4E400C3CE1B /* Animations */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
 				1E99F2C32C6217D400E1B6D0 /* Info.plist */,
@@ -195,8 +194,8 @@
 		1E99F2CB2C62199500E1B6D0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1E99F2CD2C6219E700E1B6D0 /* Extensions.swift */,
 				1E99F3222C63A66400E1B6D0 /* ErrorMessage.swift */,
+				1E99F2CD2C6219E700E1B6D0 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -204,10 +203,10 @@
 		1E99F2CC2C6219A100E1B6D0 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				1E99F2C02C6217D400E1B6D0 /* LaunchScreen.storyboard */,
 				1E99F2B52C6217D300E1B6D0 /* AppDelegate.swift */,
-				1E99F2B72C6217D300E1B6D0 /* SceneDelegate.swift */,
 				1E99F2BE2C6217D400E1B6D0 /* Assets.xcassets */,
+				1E99F2C02C6217D400E1B6D0 /* LaunchScreen.storyboard */,
+				1E99F2B72C6217D300E1B6D0 /* SceneDelegate.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -217,11 +216,11 @@
 			children = (
 				1E1B0B152C6CDC35001558A8 /* AccountView.swift */,
 				1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */,
+				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 				1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */,
 				1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */,
 				1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */,
 				1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */,
-				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -238,8 +237,8 @@
 		1E99F31C2C63A55D00E1B6D0 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				1E99F32B2C66027800E1B6D0 /* CryptoTableViewCell.swift */,
 				1E99F3302C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift */,
+				1E99F32B2C66027800E1B6D0 /* CryptoTableViewCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -247,8 +246,8 @@
 		1E99F31E2C63A59600E1B6D0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1E99F31F2C63A59F00E1B6D0 /* NetworkManager.swift */,
 				1E9A95DD2C70EAA900C3CE1B /* AnimationManager.swift */,
+				1E99F31F2C63A59F00E1B6D0 /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -265,13 +264,13 @@
 		1E9A95BC2C6E120C00C3CE1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95C32C6E214F00C3CE1B /* Account */,
+				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
+				1E9A95BD2C6E121D00C3CE1B /* Login */,
+				1E9A95C92C6F4AFB00C3CE1B /* Market */,
+				1E9A95C02C6E1B6500C3CE1B /* Register */,
 				1E9A95DC2C70EA6600C3CE1B /* SplashScreen */,
 				1E9A95CB2C6F4B1900C3CE1B /* TabBar */,
-				1E9A95C92C6F4AFB00C3CE1B /* Market */,
-				1E9A95C62C6E5C0E00C3CE1B /* CryptoDetails */,
-				1E9A95C32C6E214F00C3CE1B /* Account */,
-				1E9A95C02C6E1B6500C3CE1B /* Register */,
-				1E9A95BD2C6E121D00C3CE1B /* Login */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +344,15 @@
 				1E9A95D52C70E36C00C3CE1B /* SplashScreenViewController.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		1E9A95E32C70F4E400C3CE1B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A95DA2C70E54700C3CE1B /* lottie.json */,
+				1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		82CE8BA18546132ADB2B326F /* Frameworks */ = {
