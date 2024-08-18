@@ -16,11 +16,12 @@ protocol RegisterViewControllerInterface: AnyObject{
     func registerSuccess()
     func isValidEmail(_ email: String) -> Bool
     func isValidPassword(_ password: String) -> Bool
+    func togglePasswordVisibility()
 }
 
 final class RegisterViewController: UIViewController {
     
-    private lazy var viewModel = RegisterViewModel()
+    lazy var viewModel = RegisterViewModel()
     
     private let logoImageView: UIImageView = {
         let imageView = CustomLoginImageView(imageName: "person.circle")
@@ -35,8 +36,19 @@ final class RegisterViewController: UIViewController {
     
     private lazy var passwordContainerView: UIView = {
         let containerView = AuthenticationInputView(image: UIImage(systemName: "lock")!, textField: passwordTextField)
+        containerView.addSubview(togglePasswordVisibilityButton)
+        
+        togglePasswordVisibilityButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            togglePasswordVisibilityButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            togglePasswordVisibilityButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            togglePasswordVisibilityButton.widthAnchor.constraint(equalToConstant: 24),
+            togglePasswordVisibilityButton.heightAnchor.constraint(equalToConstant: 24)
+        ])
+        
         return containerView
     }()
+
     
     private lazy var usernameContainerView: UIView = {
         let containerView = AuthenticationInputView(image: UIImage(systemName: "person")!, textField: usernameTextField)
@@ -61,6 +73,15 @@ final class RegisterViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    
+    private lazy var togglePasswordVisibilityButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        return button
+    }()
+
     
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
@@ -131,60 +152,63 @@ extension RegisterViewController: RegisterViewControllerInterface{
     }
     
     @objc func handleRegisterButton(){
-        guard let emailText = emailTextField.text else { return }
-        guard let passwordText = passwordTextField.text else { return }
-        guard let usernameText = usernameTextField.text else { return }
-        
-        if emailText.isEmpty{
-            self.showHud(show: "Error" ,detailShow: "Email field cannot be empty", delay: 1)
-            
+        guard let emailText = emailTextField.text, !emailText.isEmpty else {
+            self.showHud(show: "Error", detailShow: "Email field cannot be empty", delay: 1)
+            return
         }
-        else if passwordText.isEmpty{
-            self.showHud(show: "Error" ,detailShow: "Password field cannot be empty", delay: 1)
-            
+        guard let passwordText = passwordTextField.text, !passwordText.isEmpty else {
+            self.showHud(show: "Error", detailShow: "Password field cannot be empty", delay: 1)
+            return
         }
-        else if usernameText.isEmpty{
-            self.showHud(show: "Error" ,detailShow: "Username field cannot be empty", delay: 1)
-            
+        guard let usernameText = usernameTextField.text, !usernameText.isEmpty else {
+            self.showHud(show: "Error", detailShow: "Username field cannot be empty", delay: 1)
+            return
         }
-        else{
-            if !isValidEmail(emailText.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                self.showHud(show: "Error" ,detailShow: "Please enter a valid email address", delay: 1)
+
+        if !isValidEmail(emailText.trimmingCharacters(in: .whitespacesAndNewlines)) {
+            self.showHud(show: "Error", detailShow: "Please enter a valid email address", delay: 1)
+        } else if !isValidPassword(passwordText) {
+            // Geçici olarak isSecureTextEntry özelliğini kapat
+            let wasSecure = passwordTextField.isSecureTextEntry
+            passwordTextField.isSecureTextEntry = false
+            
+            if passwordText.count < 8 {
+                self.showHud(show: "Error", detailShow: "Password must be at least 8 characters long.", delay: 1)
+            } else if !passwordText.contains(where: { $0.isLowercase }) {
+                self.showHud(show: "Error", detailShow: "Password must contain at least one lowercase letter", delay: 1.5)
+            } else if !passwordText.contains(where: { $0.isUppercase }) {
+                self.showHud(show: "Error", detailShow: "Password must contain at least one uppercase letter", delay: 1.5)
+            } else if !passwordText.contains(where: { $0.isNumber }) {
+                self.showHud(show: "Error", detailShow: "Password must contain at least one digit", delay: 1.5)
+            } else if !passwordText.contains(where: { "!@$%*?&#_-".contains($0) }) {
+                self.showHud(show: "Error", detailShow: "Password must contain at least one special character (e.g., $, @, !, %, *, ?, &, #, _, -).", delay: 1.5)
             }
-            else if !isValidPassword(passwordText){
-                if passwordText.count < 8 {
-                    self.showHud(show: "Error" ,detailShow: "Password must be at least 8 characters long.", delay: 1) }
-                
-                else if !passwordText.contains(where: { $0.isLowercase }) {
-                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one lowercase letter", delay: 1.5)
-                        }
-                else if !passwordText.contains(where: { $0.isUppercase }) {
-                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one uppercase letter", delay: 1.5)
-                }
-                
-                else if !passwordText.contains(where: { $0.isNumber }) {
-                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one digit", delay: 1.5)                        }
-                else if !passwordText.contains(where: { "!@$%*?&#_-".contains($0) }) {
-                    self.showHud(show: "Error" ,detailShow: "Password must contain at least one special character (e.g., $, @, !, %, *, ?, &, #, _, -).", delay: 1.5)
-                }
-            }
-            else{
-                viewModel.register(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
-            }
+            
+            // Tekrar isSecureTextEntry özelliğini eski haline getir
+            passwordTextField.isSecureTextEntry = wasSecure
+        } else {
+            viewModel.register(emailText: emailText, passwordText: passwordText, usernameText: usernameText)
         }
     }
-    
+
+    @objc func togglePasswordVisibility() {
+        passwordTextField.isSecureTextEntry.toggle() 
+        let buttonImage = passwordTextField.isSecureTextEntry ? UIImage(systemName: "eye") : UIImage(systemName: "eye.slash")
+        togglePasswordVisibilityButton.setImage(buttonImage, for: .normal)
+    }
+
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
     func isValidPassword(_ password: String) -> Bool {
-        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#_-])[A-Za-z\\dd$@$!%*?&#_-]{8,}$"
+        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@$%*?&#._-])[A-Za-z\\d!@$%*?&#._-]{8,}$"
 
-        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: password)
     }
+
     
     @objc func goLoginPage(){
         let controller = LoginViewController()
@@ -196,8 +220,8 @@ extension RegisterViewController: RegisterViewControllerInterface{
     }
     
     func registerSuccess(){
-        self.showHud(show: "You are being redirected to the home page",detailShow: "Please Wait", delay: 1.5)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        self.showHud(show: "You are being redirected to the home page",detailShow: "Please Wait", delay: 1.0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let viewController = UINavigationController(rootViewController: TabBarController())
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let window = windowScene.windows.first {

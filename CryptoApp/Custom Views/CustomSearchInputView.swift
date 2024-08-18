@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomSearchInputView: UIView {
+final class CustomSearchInputView: UIView {
     init(image:UIImage, textField: UITextField){
         super.init(frame: .zero)
         let imageView = UIImageView()
@@ -17,10 +17,9 @@ class CustomSearchInputView: UIView {
         imageView.tintColor = UIColor.darkGray
         
         
-        /*containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 0.2
-        containerView.layer.shadowOffset = CGSize(width: 2, height: 2)*/
-        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 2, height: 2)
         layer.cornerRadius = 12
         layer.borderWidth = 1
         layer.borderColor = UIColor.darkGray.cgColor

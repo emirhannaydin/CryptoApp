@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomLoginImageView: UIImageView{
+final class CustomLoginImageView: UIImageView{
     init(imageName: String){
         super.init(frame: .zero)
         contentMode = .scaleAspectFill

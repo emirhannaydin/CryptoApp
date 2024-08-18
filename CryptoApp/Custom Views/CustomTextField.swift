@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTextField: UITextField {
+final class CustomTextField: UITextField {
     init(placeHolder: String, placeholderColor: UIColor){
         super.init(frame: .zero)
         attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])

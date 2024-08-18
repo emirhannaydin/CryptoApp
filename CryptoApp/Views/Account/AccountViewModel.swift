@@ -26,7 +26,7 @@ final class AccountViewModel{
             self.user = user
             DispatchQueue.main.async {
                         self.view?.configureText()
-                    }
+            }
         }
     }
     
@@ -34,7 +34,7 @@ final class AccountViewModel{
         do {
             try Auth.auth().signOut()
         } catch {
-            print("Çıkış yaparken hata oluştu")
+            self.view?.showSignOutError()
         }
     }
     

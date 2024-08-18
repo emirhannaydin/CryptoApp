@@ -16,41 +16,41 @@ protocol CryptoDetailsViewControllerInterface: AnyObject{
     func changeIcon(data: Data)
     func showNetworkError(_ errorMessage: ErrorMessage)
 }
-class CryptoDetailsViewController: UIViewController{
+final class CryptoDetailsViewController: UIViewController{
     
     lazy var viewModel = CryptoDetailsViewModel()
     
-    let scrollView = UIScrollView()
-    let contentView = UIView()
-    let cryptoName = UILabel()
-    let cryptoSymbol = UIImageView()
-    let overviewTitle = UILabel()
-    let additionalDetailTitle = UILabel()
-    let currentPrice = UILabel()
-    let currentPriceChange = UILabel()
-    let marketCap = UILabel()
-    let marketCapChange = UILabel()
-    let rank = UILabel()
-    let volume = UILabel()
-    let maxPrice24h = UILabel()
-    let minPrice24h = UILabel()
-    let priceChange24h = UILabel()
-    let marketCapChange24h = UILabel()
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    private let cryptoName = UILabel()
+    private let cryptoSymbol = UIImageView()
+    private let overviewTitle = UILabel()
+    private let additionalDetailTitle = UILabel()
+    private let currentPrice = UILabel()
+    private let currentPriceChange = UILabel()
+    private let marketCap = UILabel()
+    private let marketCapChange = UILabel()
+    private let rank = UILabel()
+    private let volume = UILabel()
+    private let maxPrice24h = UILabel()
+    private let minPrice24h = UILabel()
+    private let priceChange24h = UILabel()
+    private let marketCapChange24h = UILabel()
     
-    var cryptoSV = UIStackView()
-    var currentPriceSV = UIStackView()
-    var marketCapSV = UIStackView()
-    var rankSV = UIStackView()
-    var volumeSV = UIStackView()
-    var maxPrice24hSV = UIStackView()
-    var minPrice24hSV = UIStackView()
-    var priceChange24hSV = UIStackView()
-    var marketCapChange24hSV = UIStackView()
+    private var cryptoSV = UIStackView()
+    private var currentPriceSV = UIStackView()
+    private var marketCapSV = UIStackView()
+    private var rankSV = UIStackView()
+    private var volumeSV = UIStackView()
+    private var maxPrice24hSV = UIStackView()
+    private var minPrice24hSV = UIStackView()
+    private var priceChange24hSV = UIStackView()
+    private var marketCapChange24hSV = UIStackView()
     
-    var firstSV = UIStackView()
-    var secondSV = UIStackView()
-    var thirdSV = UIStackView()
-    var fourthSV = UIStackView()
+    private var firstSV = UIStackView()
+    private var secondSV = UIStackView()
+    private var thirdSV = UIStackView()
+    private var fourthSV = UIStackView()
 
     var crypto: Crypto?
     
@@ -62,6 +62,7 @@ class CryptoDetailsViewController: UIViewController{
             chartView.xAxis.drawLabelsEnabled = false
             chartView.leftAxis.drawGridLinesEnabled = true
             chartView.legend.enabled = true
+            chartView.backgroundColor = .clear
         
             return chartView
         }()
@@ -71,10 +72,8 @@ class CryptoDetailsViewController: UIViewController{
         viewModel.view = self
         viewModel.viewDidLoad()
         prepareView(crypto: crypto!)
-
         
     }
-    
 }
 
 extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
@@ -141,7 +140,7 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
         secondSV.spacing = 20
 
         
-//MARK: -Additional Details
+//MARK: - Additional Details
         additionalDetailTitle.text = "Additional Detail"
         additionalDetailTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         let highPriceTitle = UILabel()
@@ -228,10 +227,10 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
             cryptoSV.topAnchor.constraint(equalTo: contentView.topAnchor),
             cryptoSV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             
-            lineChartView.topAnchor.constraint(equalTo: cryptoSV.bottomAnchor, constant: 10),
+            lineChartView.topAnchor.constraint(equalTo: cryptoSV.bottomAnchor, constant: 5),
             lineChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             lineChartView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            lineChartView.heightAnchor.constraint(equalToConstant: 200),
+            lineChartView.heightAnchor.constraint(equalToConstant: 300),
             
             overviewTitle.topAnchor.constraint(equalTo: lineChartView.bottomAnchor, constant: 20),
             overviewTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -261,22 +260,25 @@ extension CryptoDetailsViewController: CryptoDetailsViewControllerInterface{
     }
     
     func configureChart(prices: [Double]) {
-            var entries: [ChartDataEntry] = []
-            
-            for (index, price) in prices.enumerated() {
-                entries.append(ChartDataEntry(x: Double(index), y: price))
-            }
-            
-            let dataSet = LineChartDataSet(entries: entries, label: "Price")
-            dataSet.colors = [NSUIColor.systemBlue]
-            dataSet.drawCirclesEnabled = false
-            dataSet.mode = .cubicBezier
-            dataSet.lineWidth = 1
-            
-            let data = LineChartData(dataSet: dataSet)
-            lineChartView.data = data
-            lineChartView.animate(xAxisDuration: 0.5)
+        var entries: [ChartDataEntry] = []
+
+        for (index, price) in prices.enumerated() {
+            entries.append(ChartDataEntry(x: Double(index), y: price))
         }
+
+        let dataSet = LineChartDataSet(entries: entries, label: "Price")
+        dataSet.colors = [NSUIColor.systemBlue]
+        dataSet.drawCirclesEnabled = false
+        dataSet.mode = .cubicBezier
+        dataSet.lineWidth = 1
+
+        let data = LineChartData(dataSet: dataSet)
+        lineChartView.data = data
+        lineChartView.animate(xAxisDuration: 0.5)
+    }
+
+
+
     
     func prepareView(crypto: Crypto){
         

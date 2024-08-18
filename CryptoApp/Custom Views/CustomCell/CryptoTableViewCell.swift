@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class CryptoTableViewCell: UITableViewCell {
+final class CryptoTableViewCell: UITableViewCell {
     
     static let identifier = "CryptoTableViewCell"
     

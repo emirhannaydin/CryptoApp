@@ -26,10 +26,9 @@ protocol MarketViewControllerInterface: AnyObject{
     
 }
 
-class MarketViewController: UIViewController {
+final class MarketViewController: UIViewController {
     
-    var viewModel = MarketViewModel()
-
+    lazy var viewModel = MarketViewModel()
     
     let dividerView = UIView()
     
@@ -60,12 +59,14 @@ class MarketViewController: UIViewController {
     
     private lazy var searchContainerView: UIView = {
         let containerView = CustomSearchInputView(image: UIImage(systemName: "magnifyingglass")!, textField: searchTextField)
+        
         return containerView
     }()
     
     private lazy var searchTextField: UITextField = {
         let textField = CustomTextField(placeHolder: "Search", placeholderColor: UIColor.darkGray)
         textField.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
+        
         return textField
     }()
     
@@ -92,7 +93,7 @@ class MarketViewController: UIViewController {
     }
 }
 
-// MARK: - Functions
+//MARK: - Functions
 
 extension MarketViewController:MarketViewControllerInterface {
     
@@ -163,6 +164,28 @@ extension MarketViewController:MarketViewControllerInterface {
         self.tableView.reloadData()
     }
     
+    func userStatus() {
+        if viewModel.checkUser() {
+            let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
+                loginScreenVC.modalPresentationStyle = .fullScreen
+                self.present(loginScreenVC, animated: true)
+            
+        }
+    }
+    
+    func showNetworkError(_ errorMessage: ErrorMessage) {
+        DispatchQueue.main.async {
+            self.showHud(show: "Error" ,detailShow: errorMessage.rawValue, delay: 1)
+        }
+    }
+    func showNoDataError(){
+        DispatchQueue.main.async {
+            self.showHud(show: "Error" ,detailShow: "No crypto data found", delay: 1)
+        }
+    }
+    
+//MARK: - Delegates
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
             if scrollView == tableView {
                 let position = scrollView.contentOffset.y
@@ -173,18 +196,6 @@ extension MarketViewController:MarketViewControllerInterface {
                 }
             }
         }
-    
-    func userStatus() {
-        if viewModel.checkUser() {
-            print("Kullanıcı yok")
-            let loginScreenVC = UINavigationController(rootViewController: LoginViewController())
-                loginScreenVC.modalPresentationStyle = .fullScreen
-                self.present(loginScreenVC, animated: true)
-            
-        } else {
-            print("Kullanıcı var")
-        }
-    }
     @objc func searchTextChanged(_ textField: UITextField) {
         let searchText = textField.text?.lowercased() ?? ""
         viewModel.isSearching = !searchText.isEmpty
@@ -218,22 +229,6 @@ extension MarketViewController:MarketViewControllerInterface {
         view.endEditing(true)
     }
     
-    /*func sortCryptosByPriceChangePercentage(_ cryptos: [Crypto]) -> [Crypto] {
-        return cryptos.sorted {
-            ($0.priceChangePercentage24H ?? 0.0) > ($1.priceChangePercentage24H ?? 0.0)
-        }
-    }*/
-    
-    func showNetworkError(_ errorMessage: ErrorMessage) {
-        DispatchQueue.main.async {
-            self.showHud(show: "Error" ,detailShow: errorMessage.rawValue, delay: 1)
-        }
-    }
-    func showNoDataError(){
-        DispatchQueue.main.async {
-            self.showHud(show: "Error" ,detailShow: "No crypto data found", delay: 1)
-        }
-    }
 }
 
 

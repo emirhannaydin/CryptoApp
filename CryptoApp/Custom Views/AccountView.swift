@@ -7,7 +7,8 @@
 
 import UIKit
 
-class AccountView: UIView {
+final class AccountView: UIView {
+    
     init(image:UIImage, label: UILabel){
         super.init(frame: .zero)
         let imageView = UIImageView()

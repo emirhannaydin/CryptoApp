@@ -8,19 +8,17 @@
 import UIKit
 import FirebaseAuth
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
 
-    let marketVC = MarketViewController()
-    let accountVC = AccountViewController()
+    private let marketVC = MarketViewController()
+    private let accountVC = AccountViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         configureTabBar()
     }
-    
 }
-
 extension TabBarController{
     private func style(){
         viewControllers = [configureViewController(rootViewController: marketVC, title: "Market", image: "chart.xyaxis.line"),

@@ -19,7 +19,6 @@ final class NetworkManager {
     func getCrypto(pageNumber: Int,completion: @escaping ([Crypto]?, ErrorMessage?) -> Void) {
         
         let endpoint = "\(baseURL)&page=\(pageNumber)"
-        print(endpoint)
                 
         guard let url = URL(string: endpoint) else {
             
@@ -49,8 +48,6 @@ final class NetworkManager {
                 let cryptoList = try decoder.decode([Crypto].self, from: data)
                 completion(cryptoList, nil)
             } catch {
-                print("Decoding error: \(error)")
-
                 completion(nil, .invalidData)
             }
 

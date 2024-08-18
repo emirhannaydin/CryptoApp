@@ -14,10 +14,10 @@ protocol AccountViewControllerInterface: AnyObject {
     func configureText()
     func goLoginPage()
     func signOutAlert()
-        
+    func showSignOutError()
 }
 
-class AccountViewController: UIViewController {
+final class AccountViewController: UIViewController {
     
     lazy var viewModel = AccountViewModel()
     
@@ -54,15 +54,15 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundGradientColor()
         viewModel.view = self
         viewModel.viewDidLoad()
     }
-    
-    
 }
 extension AccountViewController: AccountViewControllerInterface{
     func style(){
+        view.backgroundColor = UIColor { traitCollection in
+            return traitCollection.userInterfaceStyle == .dark ? .black : UIColor(red: 36/255, green: 180/255, blue: 219/255, alpha: 1.0)
+                }
         stackView = UIStackView(arrangedSubviews: [usernameContainerView, emailContainerView, signOutButton])
         stackView.axis = .vertical
         stackView.spacing = 14
@@ -117,5 +117,10 @@ extension AccountViewController: AccountViewControllerInterface{
             alert.addAction(noAction)
             self.present(alert, animated: true, completion: nil)
         }
+    func showSignOutError(){
+        DispatchQueue.main.async {
+            self.showHud(show: "Error", detailShow: "An error occurred while logging out", delay: 1.0)
+        }
+    }
 }
 

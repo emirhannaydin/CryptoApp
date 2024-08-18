@@ -25,11 +25,9 @@ class AnimationManager {
         viewController.view.addSubview(backgroundView)
         viewController.view.addSubview(animationView)
         
-        // Animasyon süresini 1 saniye olarak ayarla
         let fixedAnimationDuration: TimeInterval = 1.0
         let animationDuration = animationView.animation?.duration ?? 0
 
-        // Animasyonun 1. saniyesinden başlayarak 1 saniye süresince oynatılacak şekilde ayarla
         let progressStart = 1.0 / animationDuration
         let progressEnd = min((1.0 + fixedAnimationDuration) / animationDuration, 1.0)
         

@@ -15,11 +15,12 @@ protocol LoginViewControllerInterface: AnyObject{
     func showLoginError()
     func LoginSuccess()
     func isValidEmail(_ email: String) -> Bool
+    func togglePasswordVisibility()
 }
 
 final class LoginViewController: UIViewController {
     
-    private lazy var viewModel = LoginViewModel()
+    lazy var viewModel = LoginViewModel()
 
     
     private let logoImageView: UIImageView = {
@@ -33,6 +34,16 @@ final class LoginViewController: UIViewController {
     }()
     private lazy var passwordContainerView: UIView = {
         let containerView = AuthenticationInputView(image: UIImage(systemName: "lock")!, textField: passwordTextField)
+        containerView.addSubview(togglePasswordVisibilityButton)
+        
+        togglePasswordVisibilityButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            togglePasswordVisibilityButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            togglePasswordVisibilityButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            togglePasswordVisibilityButton.widthAnchor.constraint(equalToConstant: 24),
+            togglePasswordVisibilityButton.heightAnchor.constraint(equalToConstant: 24)
+        ])
+        
         return containerView
     }()
     
@@ -47,6 +58,14 @@ final class LoginViewController: UIViewController {
         textField.textColor = .white
         textField.isSecureTextEntry = true
         return textField
+    }()
+    
+    private lazy var togglePasswordVisibilityButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        return button
     }()
     
     private lazy var loginButton: UIButton = {
@@ -84,7 +103,6 @@ extension LoginViewController: LoginViewControllerInterface{
     
     func style(){
         backgroundGradientColor()
-
         stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
         stackView.axis = .vertical
         stackView.spacing = 14
@@ -150,6 +168,12 @@ extension LoginViewController: LoginViewControllerInterface{
     
     func showLoginError(){
         self.showHud(show: "Error", detailShow: "User not found", delay: 1)
+    }
+    
+    @objc func togglePasswordVisibility() {
+        passwordTextField.isSecureTextEntry.toggle() 
+        let buttonImage = passwordTextField.isSecureTextEntry ? UIImage(systemName: "eye") : UIImage(systemName: "eye.slash")
+        togglePasswordVisibilityButton.setImage(buttonImage, for: .normal)
     }
     
     func LoginSuccess(){

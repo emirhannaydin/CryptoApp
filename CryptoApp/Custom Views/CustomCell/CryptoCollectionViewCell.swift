@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CryptoCollectionViewCell: UICollectionViewCell{
+final class CryptoCollectionViewCell: UICollectionViewCell{
     
     static let identifier = "CryptoCollectionViewCell"
     

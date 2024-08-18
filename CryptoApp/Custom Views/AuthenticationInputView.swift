@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthenticationInputView: UIView {
+final class AuthenticationInputView: UIView {
     init(image:UIImage, textField: UITextField){
         super.init(frame: .zero)
         let imageView = UIImageView()

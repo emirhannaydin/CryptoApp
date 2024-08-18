@@ -20,7 +20,6 @@
 		1E99F2CE2C6219E700E1B6D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2CD2C6219E700E1B6D0 /* Extensions.swift */; };
 		1E99F2D22C62246C00E1B6D0 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */; };
 		1E99F2D42C6225BB00E1B6D0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */; };
-		1E99F2D62C622C3A00E1B6D0 /* CustomLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */; };
 		1E99F2D82C62392B00E1B6D0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2D72C62392B00E1B6D0 /* RegisterViewController.swift */; };
 		1E99F2DA2C623AEB00E1B6D0 /* CustomLoginImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */; };
 		1E99F2DC2C6246C100E1B6D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */; };
@@ -55,7 +54,6 @@
 		1E99F3232C63A66400E1B6D0 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3222C63A66400E1B6D0 /* ErrorMessage.swift */; };
 		1E99F3282C63A6AB00E1B6D0 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3272C63A6AB00E1B6D0 /* Crypto.swift */; };
 		1E99F32C2C66027800E1B6D0 /* CryptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F32B2C66027800E1B6D0 /* CryptoTableViewCell.swift */; };
-		1E99F32F2C66101A00E1B6D0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1E99F32E2C66101A00E1B6D0 /* Kingfisher */; };
 		1E99F3312C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E99F3302C69E6F900E1B6D0 /* CryptoCollectionViewCell.swift */; };
 		1E9A95BB2C6E10AB00C3CE1B /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BA2C6E10AB00C3CE1B /* MarketViewController.swift */; };
 		1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A95BE2C6E128400C3CE1B /* LoginViewModel.swift */; };
@@ -89,7 +87,6 @@
 		1E99F2CD2C6219E700E1B6D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginButton.swift; sourceTree = "<group>"; };
 		1E99F2D72C62392B00E1B6D0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginImageView.swift; sourceTree = "<group>"; };
 		1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +110,7 @@
 		1E9A95DA2C70E54700C3CE1B /* lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie.json; sourceTree = "<group>"; };
 		1E9A95DD2C70EAA900C3CE1B /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		1E9A95E12C70ECEC00C3CE1B /* transitionAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transitionAnimation.json; sourceTree = "<group>"; };
+		1E9A95EB2C72301700C3CE1B /* CryptoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoApp.entitlements; sourceTree = "<group>"; };
 		39FD70D155D047BB97035697 /* Pods-CryptoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEE377AF6C9DF53BC8B6DB9 /* Pods_CryptoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95EA456E24882157DD13AB5 /* Pods-CryptoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoApp.release.xcconfig"; path = "Target Support Files/Pods-CryptoApp/Pods-CryptoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				1E99F2DF2C62478400E1B6D0 /* FirebaseAnalytics in Frameworks */,
 				1E99F2E72C62478400E1B6D0 /* FirebaseAppDistribution-Beta in Frameworks */,
 				1E99F2E32C62478400E1B6D0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				1E99F32F2C66101A00E1B6D0 /* Kingfisher in Frameworks */,
 				1E99F2ED2C62478400E1B6D0 /* FirebaseCrashlytics in Frameworks */,
 				1E99F2EF2C62478400E1B6D0 /* FirebaseDatabase in Frameworks */,
 				1E99F2F92C62478400E1B6D0 /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -177,6 +174,7 @@
 		1E99F2B42C6217D300E1B6D0 /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E9A95EB2C72301700C3CE1B /* CryptoApp.entitlements */,
 				1E9A95E32C70F4E400C3CE1B /* Animations */,
 				1E99F2D02C62243100E1B6D0 /* Custom Views */,
 				1E99F2DB2C6246C100E1B6D0 /* GoogleService-Info.plist */,
@@ -216,11 +214,10 @@
 			children = (
 				1E1B0B152C6CDC35001558A8 /* AccountView.swift */,
 				1E99F2D12C62246C00E1B6D0 /* AuthenticationInputView.swift */,
-				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
-				1E99F2D52C622C3A00E1B6D0 /* CustomLoginButton.swift */,
 				1E99F2D92C623AEB00E1B6D0 /* CustomLoginImageView.swift */,
 				1E99F31A2C63A22700E1B6D0 /* CustomSearchInputView.swift */,
 				1E99F2D32C6225BB00E1B6D0 /* CustomTextField.swift */,
+				1E99F31C2C63A55D00E1B6D0 /* CustomCell */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -415,7 +412,6 @@
 				1E99F3082C62478400E1B6D0 /* FirebaseStorageCombine-Community */,
 				1E99F30A2C62478400E1B6D0 /* FirebaseVertexAI-Preview */,
 				1E99F3142C63779900E1B6D0 /* JGProgressHUD */,
-				1E99F32E2C66101A00E1B6D0 /* Kingfisher */,
 				1E9A95D82C70E47700C3CE1B /* Lottie */,
 			);
 			productName = CryptoApp;
@@ -449,7 +445,6 @@
 			packageReferences = (
 				1E99F2DD2C62478400E1B6D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1E99F3132C63779900E1B6D0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
-				1E99F32D2C66101A00E1B6D0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1E9A95D72C70E47700C3CE1B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1E99F2B32C6217D300E1B6D0 /* Products */;
@@ -539,7 +534,6 @@
 				1E1B0B162C6CDC35001558A8 /* AccountView.swift in Sources */,
 				1E99F2D82C62392B00E1B6D0 /* RegisterViewController.swift in Sources */,
 				1E9A95BF2C6E128400C3CE1B /* LoginViewModel.swift in Sources */,
-				1E99F2D62C622C3A00E1B6D0 /* CustomLoginButton.swift in Sources */,
 				1E99F32C2C66027800E1B6D0 /* CryptoTableViewCell.swift in Sources */,
 				1E99F2B82C6217D300E1B6D0 /* SceneDelegate.swift in Sources */,
 				1E9A95D62C70E36C00C3CE1B /* SplashScreenViewController.swift in Sources */,
@@ -697,6 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoApp/CryptoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A863W62WVD;
@@ -708,7 +703,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,6 +723,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoApp/CryptoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A863W62WVD;
@@ -739,7 +735,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,14 +787,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.2.0;
-			};
-		};
-		1E99F32D2C66101A00E1B6D0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.12.0;
 			};
 		};
 		1E9A95D72C70E47700C3CE1B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -931,11 +919,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E99F3132C63779900E1B6D0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
-		};
-		1E99F32E2C66101A00E1B6D0 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1E99F32D2C66101A00E1B6D0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		1E9A95D82C70E47700C3CE1B /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
